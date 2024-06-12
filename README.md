@@ -7,4 +7,4 @@
 
 **RequestResponse Flow**
 
-!(/images/RequestResponseFlow.jpeg)
+!(images/RequestResponseFlow.jpeg)

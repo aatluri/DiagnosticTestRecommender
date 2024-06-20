@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title> Module Views </title>
+    </head>
+    <body>
+        <!-- The brackets acts as a placeholder and tells Django that this needs to be replaced with the variables passed in when rendering the page.
+        We can also apply filters after a | . here the title means it will convert the text to titlecase.
+        -->
+        <h1> Lists the views of the {{ moduletitle|title }} app eg: {{text}}  </h1>
+
+        <ul>
+            <!--We passed in the view titles from the view. So now we can loop through the view titles-->
+            {% for view in views %}
+                {% if view is not None %}
+                    <h1>Entered if loop for {{view}} </h1>
+                    <li>
+                        <!-- As you can see below we can use the hardocded path of /module/ but this is not ideal as if we ever change our module bame etc.. then we need to remmeber to change it here-->
+                        <!--<a href="/module/{{view}}">{{view}}</a> -->
+                        <!-- A better way is to use the Url tag. So here we use the tag url followed by the named url you want it to go to. The named url should be set up in the module/urls.py-->
+                        <a href="{% url "returnhtmltemplate" %}">{{view}}</a>
+                    </li>
+                {% else %}
+                    <h1>Entered else loop for {{view}} </h1>
+                {%  endif %}
+            {% endfor %}
+        </ul>
+    </body>
+</html>

@@ -18,15 +18,15 @@ def collectpatientinformation(request):
 
 def returndiagnostictestquestionaire(request):
         if request.method == "POST":
-             print("Entered post")
+             print("Entered question form post")
              fullname = request.POST["fullname"]
              phonenumber = request.POST["phonenumber"]
              email = request.POST["email"]
              dateofbirth = request.POST["dateofbirth"]
              gender = request.POST["gender"]
              existingpatient= "yes"
-             smokingstatus= None
-             drinkingstatus = None
+             smokingstatus= "regularsmoker"
+             drinkingstatus = "lightdrinker"
              previnfection = None
              menstrualhistory = None
              print(fullname,phonenumber,email,dateofbirth,gender)
@@ -45,6 +45,19 @@ def returndiagnostictestquestionaire(request):
 
         return render(request,"module/diagnostictestquestionaire.html")
 
+
+
+def displaydiagnostictests(request):
+         if request.method == "POST":
+             print("Entered display diagnostic text form post")
+             diagnostictests = {
+            "Complete Blood Count": "A complete blood count (CBC) is a blood test. It's used to look at overall health and find a wide range of conditions, including anemia, infection and leukemia",
+            "Urine Analysis": "Healthcare providers often use urinalysis tests to screen for or monitor certain health conditions and to diagnose urinary tract infections."
+            }
+             return render(request,"module/displaydiagnostictests.html",{
+            "diagnostictests": diagnostictests
+            })
+         return render(request,"module/displaydiagnostictests.html")
 
 
 

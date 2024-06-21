@@ -33,7 +33,7 @@
 				<img src="{% static "module/img/side-img.jpg" %}" alt="">
 			</div>
 		</div>
-		<form class="multisteps-form__form" action="/" id="wizard" method="POST">
+		<form class="multisteps-form__form" action="/module/displaydiagnostictests" id="wizard" method="POST">
 			{% csrf_token %}
 			<div class="form-area position-relative">
 				<!-- div 1 -->
@@ -51,12 +51,12 @@
 									{%  endif %}
 									<hr>
 									<h3>SMOKING</h3>
-									<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
+									<p>Please check the box that best describes your smoking habit.</p>
 
 									<div class="step-box">
 										<div class="row">
 											<div class="col-md-4">
-												<label class="step-box-content bg-white text-center relative-position ">
+												<label class="step-box-content bg-white text-center relative-position {% if smokingstatus == "nonsmoker"%} active {% else %} inactive {%  endif %} ">
 													<span class="step-box-icon">
 														<img src="{% static "module/img/nonsmoker.png" %}" alt="">
 													</span>
@@ -64,25 +64,25 @@
 														Non Smoker
 													</span>
 													<span class="service-check-option">
-														<span><input type="radio" name="smoking_status" value="nosmoking" checked ></span>
+														<span><input type="radio" name="smokingstatus" value="nonsmoker" checked ></span>
 													</span>
 												</label>
 											</div>
 											<div class="col-md-4">
-												<label class="step-box-content bg-white text-center relative-position">
+												<label class="step-box-content bg-white text-center relative-position {% if smokingstatus == "regularsmoker"%} active {% else %} inactive {%  endif %}">
 													<span class="step-box-icon">
-														<img src="{% static "module/img/heavysmoker.png" %}" alt="">
+														<img src="{% static "module/img/regularsmoker.png" %}" alt="">
 													</span>
 													<span class="step-box-text">
 														Regular Smoker
 													</span>
 													<span class="service-check-option">
-														<span><input id="condition1" type="radio" name="smoking_status" value="regularsmoking"></span>
+														<span><input id="condition1" type="radio" name="smokingstatus" value="regularsmoker"></span>
 													</span>
 												</label>
 											</div>
 											<div class="col-md-4">
-												<label class="step-box-content bg-white text-center relative-position">
+												<label class="step-box-content bg-white text-center relative-position {% if smokingstatus == "lightsmoker"%} active {% else %} inactive {%  endif %}">
 													<span class="step-box-icon">
 														<img src="{% static "module/img/lightsmoker.png" %}" alt="">
 													</span>
@@ -90,7 +90,7 @@
 														Occasional Smoker
 													</span>
 													<span class="service-check-option">
-														<span><input type="radio" name="smoking_status" value="occasionalsmoking"></span>
+														<span><input type="radio" name="smokingstatus" value="lightsmoker"></span>
 													</span>
 												</label>
 											</div>
@@ -99,12 +99,12 @@
 									<hr>
 									<br>
 									<h3>ALCOHOL CONSUMPTION</h3>
-									<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
+									<p>Please check the box that best describes your alcholol consumption.</p>
 
 									<div class="step-box">
 										<div class="row">
 											<div class="col-md-4">
-												<label class="step-box-content bg-white text-center relative-position ">
+												<label class="step-box-content bg-white text-center relative-position {% if drinkingstatus == "nondrinker"%} active {% else %} inactive {%  endif %}">
 													<span class="step-box-icon">
 														<img src="{% static "module/img/nondrinker.png" %}" alt="">
 													</span>
@@ -112,25 +112,25 @@
 														Non Drinker
 													</span>
 													<span class="service-check-option">
-														<span><input type="radio" name="service_name" value="nondrinker" checked ></span>
+														<span><input type="radio" name="drinkingstatus" value="nondrinker" checked ></span>
 													</span>
 												</label>
 											</div>
 											<div class="col-md-4">
-												<label class="step-box-content bg-white text-center relative-position">
+												<label class="step-box-content bg-white text-center relative-position {% if drinkingstatus == "regulardrinker"%} active {% else %} inactive {%  endif %}">
 													<span class="step-box-icon">
-														<img src="{% static "module/img/heavydrinker.png" %}" alt="">
+														<img src="{% static "module/img/regulardrinker.png" %}" alt="">
 													</span>
 													<span class="step-box-text">
 														Regular Drinker
 													</span>
 													<span class="service-check-option">
-														<span><input id="condition1" type="radio" name="service_name" value="regulardrinker"></span>
+														<span><input id="condition1" type="radio" name="drinkingstatus" value="regulardrinker"></span>
 													</span>
 												</label>
 											</div>
 											<div class="col-md-4">
-												<label class="step-box-content bg-white text-center relative-position">
+												<label class="step-box-content bg-white text-center relative-position {% if drinkingstatus == "lightdrinker"%} active {% else %} inactive {%  endif %}">
 													<span class="step-box-icon">
 														<img src="{% static "module/img/lightdrinker.png" %}" alt="">
 													</span>
@@ -138,7 +138,7 @@
 														Occasional Drinker
 													</span>
 													<span class="service-check-option">
-														<span><input type="radio" name="service_name" value="occasionaldrinker"></span>
+														<span><input type="radio" name="drinkingstatus" value="lightdrinker"></span>
 													</span>
 												</label>
 											</div>
@@ -147,16 +147,16 @@
 									<hr>
 									<br>
 									<h3>PREVIOUS INFECTIONS</h3>
-									<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
+									<p>Knowing about any previous infections is vital to determining what tests might be needed for you.</p>
 									<br>
 									<br>
 									<div class="budget-area">
 										<p>Have you tested positive for any of the below infections</p>
 										<div class="opti-list">
 											<ul class="d-flex">
-												<li class="bg-white "><input type="checkbox" name="code_opti1" value="Semantic coding" checked >HIV</li>
-												<li class="bg-white"><input type="checkbox" name="code_opti2" value="Mobile APP">HBV</li>
-												<li class="bg-white"><input type="checkbox" name="code_opti3" value="Mobile Design">HCV</li>
+												<li class="bg-white "><input type="checkbox" name="previnfection_hiv" value="hiv" >HIV</li>
+												<li class="bg-white"><input type="checkbox" name="previnfection_hbv" value="hbv">HBV</li>
+												<li class="bg-white"><input type="checkbox" name="previnfection_hcv" value="hcv">HCV</li>
 											</ul>
 										</div>
 									</div>

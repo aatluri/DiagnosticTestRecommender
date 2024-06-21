@@ -8,7 +8,8 @@ urlpatterns= [
 # We are telling Django that for a /module/returnquestionaire url pattern, it should call the returndiagnostictestquestionaire view.
     path('diagnostictestquestionaire', views.returndiagnostictestquestionaire),
     path('returntestform', views.returntestform),
-    path('patientinformation', views.collectpatientinformation)
+    path('patientinformation', views.collectpatientinformation),
+    path('displaydiagnostictests', views.displaydiagnostictests),
 
 
 ]

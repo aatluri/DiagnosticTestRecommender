@@ -6,12 +6,20 @@
         <title> Module Views </title>
     </head>
     <body>
-        <form method="POST">
-            {% csrf_token %}
-            <label for="username"> Your Name </label>
-            <input id="username" name="username" type="text">
-            <button type="submit"> Send </button>
-        </form>
+        <table>
+            <tr>
+                <td>a</td>
+                <td>b</td>
+                <td>c</td>
+            </tr>
+
+            {% for key, values in diagnostictests.items %}
+            <tr>
+                <td>{{key}}</td>
+                <td>{{values}}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </body>
 
 

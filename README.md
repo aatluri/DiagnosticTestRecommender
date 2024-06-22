@@ -1,4 +1,6 @@
 
+admin username: admin
+password: 123456
 
 ## What is a View
 1. It is logic that is executed for different urls and http methods.

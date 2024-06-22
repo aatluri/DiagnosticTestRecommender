@@ -50,9 +50,17 @@
 										<p>We would like to get some information about your habits, previous infections etc.. Plese fill out the form and click on Submit.</p>
 									{%  endif %}
 									<hr>
-									<h3>SMOKING</h3>
+									<h4>SMOKING</h4>
 									<p>Please check the box that best describes your smoking habit.</p>
-
+									<br>
+									<div class="budget-area">
+										<select name="smokingstatus">
+											<option{% if smokingstatus == "Non Smoker"%} selected="selected" {% else %}  {%  endif %}>Non Smoker</option>
+											<option{% if smokingstatus == "Heavy Smoker"%} selected="selected" {% else %}  {%  endif %}>Heavy Smoker</option>
+											<option{% if smokingstatus == "Light Smoker"%} selected="selected" {% else %}  {%  endif %}>Light Smoker</option>
+										</select>
+									</div>
+									<!--
 									<div class="step-box">
 										<div class="row">
 											<div class="col-md-4">
@@ -96,11 +104,20 @@
 											</div>
 										</div>
 									</div>
+									-->
 									<hr>
 									<br>
-									<h3>ALCOHOL CONSUMPTION</h3>
+									<h4>ALCOHOL CONSUMPTION</h4>
 									<p>Please check the box that best describes your alcholol consumption.</p>
-
+									<br>
+									<div class="budget-area">
+										<select name="drinkingstatus">
+											<option{% if drinkingstatus == "Non Drinker"%} selected="selected" {% else %}  {%  endif %}>Non Drinker</option>
+											<option{% if drinkingstatus == "Regular Drinker"%} selected="selected" {% else %}  {%  endif %}>Regular Drinker</option>
+											<option{% if drinkingstatus == "Occasional Drinker"%} selected="selected" {% else %}  {%  endif %}>Occasional Drinker</option>
+										</select>
+									</div>
+									<!--
 									<div class="step-box">
 										<div class="row">
 											<div class="col-md-4">
@@ -144,25 +161,34 @@
 											</div>
 										</div>
 									</div>
+									-->
 									<hr>
 									<br>
-									<h3>PREVIOUS INFECTIONS</h3>
-									<p>Knowing about any previous infections is vital to determining what tests might be needed for you.</p>
-									<br>
+									<h4>PREVIOUS INFECTIONS</h4>
+									<p>Have you tested positive for any of the following infections : HIV, HBV, HCV</p>
 									<br>
 									<div class="budget-area">
-										<p>Have you tested positive for any of the below infections</p>
+										<select name="previnfection">
+											<option>NO</option>
+											<option>YES</option>
+										</select>
+									</div>
+									<!--
+									<div class="budget-area">
+										<p></p>
 										<div class="opti-list">
 											<ul class="d-flex">
-												<li class="bg-white "><input type="checkbox" name="previnfection_hiv" value="hiv" >HIV</li>
-												<li class="bg-white"><input type="checkbox" name="previnfection_hbv" value="hbv">HBV</li>
-												<li class="bg-white"><input type="checkbox" name="previnfection_hcv" value="hcv">HCV</li>
+												<li class="bg-white {% if previnfection_hiv == "hiv"%} active {% else %} inactive {%  endif %}"><input type="checkbox" name="previnfection_hiv" value="hiv" >HIV</li>
+												<li class="bg-white {% if previnfection_hbv == "hbv"%} active {% else %} inactive {%  endif %}"><input type="checkbox" name="previnfection_hbv" value="hbv">HBV</li>
+												<li class="bg-white {% if previnfection_hcv == "hcv"%} active {% else %} inactive {%  endif %}"><input type="checkbox" name="previnfection_hcv" value="hcv">HCV</li>
 											</ul>
 										</div>
 									</div>
+									-->
 									<br>
+									<h4>BLOOD EXPOSURE</h4>
+									<p>Have you had a needle prick injury or exposure to blood or blood products in the last 3 months </p>
 									<div class="budget-area">
-										<p>Have you had a needle prick injury or exposure to blood or blood products in the last 3 months </p>
 										<select name="bloodexposure">
 											<option>NO</option>
 											<option>YES</option>
@@ -172,17 +198,14 @@
 									{% if gender == "Female" %}
 										<hr>
 										<br>
-										<h3>REPRODUCTIVE STATUS</h3>
+										<h4>MENSTRUAL HISTORY</h4>
 										<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
-										<div class="step-content-area">
-											<div class="budget-area">
-												<p><i class=""></i> Menstrual History</p>
-												<select name="budget">
-													<option>All Good</option>
-													<option>Excessive Bleeding</option>
-													<option>Irregular Periods</option>
-												</select>
-											</div>
+										<div class="budget-area">
+											<select name="menstrualhistory">
+												<option>All Good</option>
+												<option>Excessive Bleeding</option>
+												<option>Irregular Periods</option>
+											</select>
 										</div>
 										{% else %}
 											<hr>
@@ -191,10 +214,10 @@
 									<div class="step-content-area">
 										<hr>
 										<br>
-										<h3>COMMENTS</h3>
+										<h4>COMMENTS</h4>
 										<div class="comment-box">
 											<p><i class="fas fa-comments"></i> Do you want to tell us anything else?</p>
-											<textarea name="comments-note" placeholder="Your Content Here"></textarea>
+											<textarea name="comments" >{% if comments is not None %} {{comments}} {% else %} "Your Content Here" {%  endif %}</textarea>
 									</div>
 									</div>
 

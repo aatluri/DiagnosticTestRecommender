@@ -178,3 +178,16 @@ urls.py
     # The below url pattern is to demostrate that we can return dynamic html stored in a html template file
     path('returndynamichtmltemplate', views.returndynamichtmltemplate),
 
+
+            diagnostictests1 = [
+                  {
+                    "name" : "Complete Blood Count",
+                    "description" : "A complete blood count (CBC) is a blood test. It's used to look at overall health and find a wide range of conditions, including anemia, infection and leukemia",
+                    "validity_days":180
+                  },
+                  {
+                    "name" : "Urine Analysis",
+                    "description" : "Healthcare providers often use urinalysis tests to screen for or monitor certain health conditions and to diagnose urinary tract infections.",
+                    "validity_days":180
+                  }
+            ]

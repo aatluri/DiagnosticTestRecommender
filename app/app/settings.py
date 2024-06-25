@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_extensions',  # This is for the runscript functionality to load data into the database.
     'module'
 ]
 
@@ -123,3 +124,27 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CONFIG_VALUES =   {
+                "nonsmokervalue" : "NON SMOKER",
+                "heavysmokervalue" : "HEAVY SMOKER",
+                "lightsmokervalue": "LIGHT SMOKER",
+                "nondrinkervalue" : "NON DRINKER",
+                "regulardrinkervalue" : "REGULAR DRINKER",
+                "occasionaldrinkervalue": "OCCASIONAL DRINKER",
+                "previnfection_yes" : "PREVIOUS INFECTION YES",
+                "previnfection_no": "PREVIOUS INFECTION NO",
+                "bloodexposure_yes" : "BLOOD EXPOSURE YES",
+                "bloodexposure_no": "BLOOD EXPOSURE NO",
+                "menstrualhistory_allgood": "MENSTRUAL HISTORY ALL GOOD",
+                "bloodexposure_excessivebleeding" : "MENSTRUAL HISTORY EXCESSIVE BLEEDING",
+                "bloodexposure_ireregularperiods": "MENSTRUAL HISTORY IRREGULAR PERIODS",
+                "gender_male": "MALE",
+                "gender_female" : "FEMALE",
+                "age_range_old" : "OLD",
+                "age_range_young" : "YOUNG",
+                "testtype_healthcheckup" : "GENERAL HEALTH CHECKUP",
+                "testtype_personalised" : "PERSONALISED",
+
+            }

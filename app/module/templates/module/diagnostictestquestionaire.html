@@ -55,9 +55,9 @@
 									<br>
 									<div class="budget-area">
 										<select name="smokingstatus">
-											<option{% if smokingstatus == "Non Smoker"%} selected="selected" {% else %}  {%  endif %}>Non Smoker</option>
-											<option{% if smokingstatus == "Heavy Smoker"%} selected="selected" {% else %}  {%  endif %}>Heavy Smoker</option>
-											<option{% if smokingstatus == "Light Smoker"%} selected="selected" {% else %}  {%  endif %}>Light Smoker</option>
+											<option{% if smokingstatus == configvalues.nonsmokervalue %} selected="selected" {% else %}  {%  endif %}>{{configvalues.nonsmokervalue}}</option>
+											<option{% if smokingstatus == configvalues.heavysmokervalue%} selected="selected" {% else %}  {%  endif %}>{{configvalues.heavysmokervalue}}</option>
+											<option{% if smokingstatus == configvalues.lightsmokervalue%} selected="selected" {% else %}  {%  endif %}>{{configvalues.lightsmokervalue}}</option>
 										</select>
 									</div>
 									<!--
@@ -112,9 +112,9 @@
 									<br>
 									<div class="budget-area">
 										<select name="drinkingstatus">
-											<option{% if drinkingstatus == "Non Drinker"%} selected="selected" {% else %}  {%  endif %}>Non Drinker</option>
-											<option{% if drinkingstatus == "Regular Drinker"%} selected="selected" {% else %}  {%  endif %}>Regular Drinker</option>
-											<option{% if drinkingstatus == "Occasional Drinker"%} selected="selected" {% else %}  {%  endif %}>Occasional Drinker</option>
+											<option{% if drinkingstatus == configvalues.nondrinkervalue%} selected="selected" {% else %}  {%  endif %}>{{configvalues.nondrinkervalue}}</option>
+											<option{% if drinkingstatus == configvalues.regulardrinkervalue%} selected="selected" {% else %}  {%  endif %}>{{configvalues.regulardrinkervalue}}</option>
+											<option{% if drinkingstatus == configvalues.occasionaldrinkervalue%} selected="selected" {% else %}  {%  endif %}>{{configvalues.occasionaldrinkervalue}}</option>
 										</select>
 									</div>
 									<!--
@@ -169,8 +169,8 @@
 									<br>
 									<div class="budget-area">
 										<select name="previnfection">
-											<option>NO</option>
-											<option>YES</option>
+											<option{% if previnfection == configvalues.previnfection_no%} selected="selected" {% else %}  {%  endif %}>{{configvalues.previnfection_no}}</option>
+											<option{% if previnfection == configvalues.previnfection_yes%} selected="selected" {% else %}  {%  endif %}>{{configvalues.previnfection_yes}}</option>
 										</select>
 									</div>
 									<!--
@@ -190,8 +190,8 @@
 									<p>Have you had a needle prick injury or exposure to blood or blood products in the last 3 months </p>
 									<div class="budget-area">
 										<select name="bloodexposure">
-											<option>NO</option>
-											<option>YES</option>
+											<option{% if bloodexposure == configvalues.bloodexposure_no%} selected="selected" {% else %}  {%  endif %}>{{configvalues.bloodexposure_no}}</option>
+											<option{% if bloodexposure == configvalues.bloodexposure_yes%} selected="selected" {% else %}  {%  endif %}>{{configvalues.bloodexposure_yes}}</option>
 										</select>
 									</div>
 
@@ -202,9 +202,9 @@
 										<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
 										<div class="budget-area">
 											<select name="menstrualhistory">
-												<option>All Good</option>
-												<option>Excessive Bleeding</option>
-												<option>Irregular Periods</option>
+												<option{% if menstrualhistory == configvalues.menstrualhistory_allgood%} selected="selected" {% else %}  {%  endif %}>{{configvalues.menstrualhistory_allgood}}</option>
+												<option{% if menstrualhistory == configvalues.menstrualhistory_excessivebleeding%} selected="selected" {% else %}  {%  endif %}>{{configvalues.menstrualhistory_excessivebleeding}}</option>
+												<option{% if menstrualhistory == configvalues.menstrualhistory_ireregularperiods%} selected="selected" {% else %}  {%  endif %}>{{configvalues.menstrualhistory_ireregularperiods}}</option>
 											</select>
 										</div>
 										{% else %}

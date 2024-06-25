@@ -37,19 +37,18 @@
 	</div>
 	<div class="view_main">
 		<div class="view_wrap list-view" style="display: block;">
-			{% for key, values in diagnostictests.items %}
+			{% for test in diagnostictests_healthcheckup %}
 				<div class="view_item">
 					<div class="vi_left">
 						<img src="{% static "module/img/test.png" %}" alt="tomato">
 					</div>
 					<div class="vi_right">
-						<p class="title">{{key}}</p>
-						<p class="content">{{values}}</p>
+						<p class="title">{{test.name}}</p>
+						<p class="content">{{test.description}}</p>
 
 					</div>
 				</div>
             {% endfor %}
-
 		</div>
 
 	</div>
@@ -65,19 +64,30 @@
 	</div>
 	<div class="view_main">
 		<div class="view_wrap list-view" style="display: block;">
-			{% for key, values in diagnostictests.items %}
+			{% for test in diagnostictests_smokingstatus %}
 				<div class="view_item">
 					<div class="vi_left">
 						<img src="{% static "module/img/test.png" %}" alt="tomato">
 					</div>
 					<div class="vi_right">
-						<p class="title">{{key}}</p>
-						<p class="content">{{values}}</p>
+						<p class="title">{{test.name}}</p>
+						<p class="content">{{test.description}}</p>
 
 					</div>
 				</div>
             {% endfor %}
+			{% for test in diagnostictests_drinkingstatus %}
+				<div class="view_item">
+					<div class="vi_left">
+						<img src="{% static "module/img/test.png" %}" alt="tomato">
+					</div>
+					<div class="vi_right">
+						<p class="title">{{test.name}}</p>
+						<p class="content">{{test.description}}</p>
 
+					</div>
+				</div>
+            {% endfor %}
 		</div>
 
 	</div>

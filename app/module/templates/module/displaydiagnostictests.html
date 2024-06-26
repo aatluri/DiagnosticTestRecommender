@@ -1,101 +1,178 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="utf-8">
-	<title>Recommended Diagnostic Tests </title>
-
+	<title>Recommended Diagnostic Testse</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="{% static "module/css/bootstrap.min.css" %}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
 	<link rel="stylesheet" href="{% static "module/css/animate.min.css" %}">
 	<link rel="stylesheet" href="{% static "module/css/fontawesome-all.css" %}">
-	<link rel="stylesheet" href="{% static "module/css/testdisplaystyles.css" %}">
 	<link rel="stylesheet" href="{% static "module/css/style.css" %}">
-
-	<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
-
+	<link rel="stylesheet" href="{% static "module/css/testdisplaystyles.css" %}">
 
 
 </head>
 
 <body>
-	<div class="steps-area steps-area-fixed">
-		<div class="image-holder">
-			<img src="{% static "module/img/hero.png" %}" alt="">
+
+
+
+	<div class="wrapper">
+		<div class="steps-area steps-area-fixed">
+			<div class="image-holder">
+				<img src="{% static "module/img/side-img.jpg" %}" alt="">
+			</div>
+
 		</div>
-	</div>
+		<form class="multisteps-form__form" action="/" id="wizard" method="POST">
+			{% csrf_token %}
+			<div class="form-area position-relative">
+				<div class="multisteps-form__panel js-active" data-animation="slideHorz">
+					<div class="wizard-forms">
+						<div class="inner pb-100 clearfix">
+							<div class="form-content pera-content">
+								<h2>General Health Checkup Tests</h2>
+								<br>
+								<div class="view_main">
+									<div class="view_wrap list-view" style="display: block;">
+										{% for test in querysethealthcheckup %}
+											<div class="view_item">
+												<div class="vi_left desktop-display">
+													{% if test.displayicon == "" %}
+														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
+													{% else %}
+														<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
+													{%  endif %}
+												</div>
+												<div class="vi_right">
+													<h4 class="title">{{test.name}}</h4>
+													<p class="content">{{test.description}}</p>
+													<p class="content">The test is valid for {{test.validity_days}} days</p>
+													<p class="content">Sample Collection : Urine</p>
 
-<div class="wrapper">
-	<div class="links">
-		<ul>
-			<li data-view="list-view" class="li-list active">
-			<i class="fas fa-th-list"></i>
-			General Health Checkup Tests</li>
-		</ul>
-	</div>
-	<div class="view_main">
-		<div class="view_wrap list-view" style="display: block;">
-			{% for test in diagnostictests_healthcheckup %}
-				<div class="view_item">
-					<div class="vi_left">
-						<img src="{% static "module/img/test.png" %}" alt="tomato">
-					</div>
-					<div class="vi_right">
-						<p class="title">{{test.name}}</p>
-						<p class="content">{{test.description}}</p>
+												</div>
+											</div>
+										{% endfor %}
+									</div>
+								</div>
+								<br>
+								<br>
+								<h2>Tests Recommended for You</h2>
+								<br>
 
+									<div class="view_main">
+										<div class="view_wrap list-view" style="display: block;">
+											{% for test in querysetsmoking %}
+												<div class="view_item">
+													<div class="vi_left desktop-display">
+														{% if test.displayicon == "" %}
+															<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
+														{% else %}
+															<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
+														{%  endif %}
+													</div>
+													<div class="vi_right">
+														<p class="title">{{test.name}}</p>
+														<p class="content">{{test.description}}</p>
+														<p class="content">The test is valid for {{test.validity_days}} days</p>
+														<p class="content">Sample Collection : Urine</p>
+
+													</div>
+												</div>
+											{% endfor %}
+											{% for test in querysetdrinking %}
+												<div class="view_item">
+													<div class="vi_left desktop-display">
+														{% if test.displayicon == "" %}
+															<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
+														{% else %}
+															<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
+														{%  endif %}
+													</div>
+													<div class="vi_right">
+														<p class="title">{{test.name}}</p>
+														<p class="content">{{test.description}}</p>
+														<p class="content">The test is valid for {{test.validity_days}} days</p>
+														<p class="content">Sample Collection : Urine</p>
+
+													</div>
+												</div>
+											{% endfor %}
+											{% for test in querysetprevinfection %}
+												<div class="view_item">
+													<div class="vi_left desktop-display">
+														{% if test.displayicon == "" %}
+															<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
+														{% else %}
+															<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
+														{%  endif %}
+													</div>
+													<div class="vi_right">
+														<p class="title">{{test.name}}</p>
+														<p class="content">{{test.description}}</p>
+														<p class="content">The test is valid for {{test.validity_days}} days</p>
+														<p class="content">Sample Collection : Urine</p>
+
+													</div>
+												</div>
+											{% endfor %}
+											{% for test in querysetbloodexposure %}
+												<div class="view_item">
+													<div class="vi_left desktop-display">
+														{% if test.displayicon == "" %}
+															<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
+														{% else %}
+															<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
+														{%  endif %}
+													</div>
+													<div class="vi_right">
+														<p class="title">{{test.name}}</p>
+														<p class="content">{{test.description}}</p>
+														<p class="content">The test is valid for {{test.validity_days}} days</p>
+														<p class="content">Sample Collection : Urine</p>
+
+													</div>
+												</div>
+											{% endfor %}
+											{% for test in querysetmenstrualhistory %}
+												<div class="view_item">
+													<div class="vi_left desktop-display">
+														{% if test.displayicon == "" %}
+															<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
+														{% else %}
+															<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
+														{%  endif %}
+													</div>
+													<div class="vi_right">
+														<p class="title">{{test.name}}</p>
+														<p class="content">{{test.description}}</p>
+														<p class="content">The test is valid for {{test.validity_days}} days</p>
+														<p class="content">Sample Collection : Urine</p>
+
+													</div>
+												</div>
+											{% endfor %}
+										</div>
+
+									</div>
+
+							</div>
+						</div>
 					</div>
 				</div>
-            {% endfor %}
-		</div>
-
+			</div>
+		</form>
 	</div>
-</div>
-
-<div class="wrapper">
-	<div class="links">
-		<ul>
-			<li data-view="list-view" class="li-list active">
-			<i class="fas fa-th-list"></i>
-			Tests Recommended for You</li>
-		</ul>
-	</div>
-	<div class="view_main">
-		<div class="view_wrap list-view" style="display: block;">
-			{% for test in diagnostictests_smokingstatus %}
-				<div class="view_item">
-					<div class="vi_left">
-						<img src="{% static "module/img/test.png" %}" alt="tomato">
-					</div>
-					<div class="vi_right">
-						<p class="title">{{test.name}}</p>
-						<p class="content">{{test.description}}</p>
-
-					</div>
-				</div>
-            {% endfor %}
-			{% for test in diagnostictests_drinkingstatus %}
-				<div class="view_item">
-					<div class="vi_left">
-						<img src="{% static "module/img/test.png" %}" alt="tomato">
-					</div>
-					<div class="vi_right">
-						<p class="title">{{test.name}}</p>
-						<p class="content">{{test.description}}</p>
-
-					</div>
-				</div>
-            {% endfor %}
-		</div>
-
-	</div>
-</div>
-
-<!--
-<script src="{% static "module/js/testdisplayscripts.js" %}"></script>
--->
-
+	<script src="{% static "module/js/jquery-3.3.1.min.js" %}"></script>
+	<script src="{% static "module/js/jquery.validate.min.js" %}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+	<script src="{% static "module/js/bootstrap.min.js" %}"></script>
+	<script src="{% static "module/js/conditionize.flexible.jquery.min.js" %}"></script>
+	<script src="{% static "module/js/main.js" %}"></script>
+	<script src="{% static "module/js/switch.js" %}"></script>
 </body>
+
 </html>

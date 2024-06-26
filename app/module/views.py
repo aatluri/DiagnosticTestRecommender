@@ -10,11 +10,6 @@ from django.conf import settings
 # Create your views here
 
 
-def returntestform(request):
-        if request.method == "POST":
-             print("Entered post")
-        return render(request,"module/testform.html")
-
 
 def collectpatientinformation(request):
         return render(request,"module/patientinformation.html",{"configvalues":settings.CONFIG_VALUES})
@@ -108,15 +103,14 @@ def displaydiagnostictests(request):
             bloodexposure = request.POST["bloodexposure"]
             comments = request.POST["comments"]
             # Look for mensturalhistory value only if gender is female.
-            if gender == "Female":
+            if gender == settings.CONFIG_VALUES["gender_female"]:
                 menstrualhistory = request.POST["menstrualhistory"]
             else:
                 menstrualhistory=None
 
 
-            print(fullname,phonenumber,dateofbirth,gender,age_range,smokingstatus,drinkingstatus,previnfection,bloodexposure)
+            print(fullname,phonenumber,dateofbirth,gender,age_range,smokingstatus,drinkingstatus,previnfection,bloodexposure,menstrualhistory)
             # Retreive the patient so that we can update theor questionaire choices incase they have been modifed
-            patient = Patient.objects.get(fullname=fullname,gender=gender,phonenumber=phonenumber,dateofbirth=dateofbirth)
             if Patient.objects.filter(fullname=fullname,gender=gender,phonenumber=phonenumber,dateofbirth=dateofbirth).exists():
                    patient = Patient.objects.get(fullname=fullname,gender=gender,phonenumber=phonenumber,dateofbirth=dateofbirth)
                    patient.smokingstatus = smokingstatus
@@ -151,10 +145,32 @@ def displaydiagnostictests(request):
             querysetdrinking = querysetdrinking.filter(tags__tagname = drinkingstatus)
             print(querysetdrinking)
 
+            # Creating Query set for the Prev Infection.
+            querysetprevinfection = DiagnosticTest.objects.all()
+            querysetprevinfection = querysetprevinfection.filter(tags__tagname = settings.CONFIG_VALUES["testtype_personalised"] )
+            querysetprevinfection = querysetprevinfection.filter(tags__tagname = gender)
+            querysetprevinfection = querysetprevinfection.filter(tags__tagname = previnfection)
+            print(querysetprevinfection)
+
+            querysetbloodexposure = DiagnosticTest.objects.all()
+            querysetbloodexposure = querysetbloodexposure.filter(tags__tagname = settings.CONFIG_VALUES["testtype_personalised"] )
+            querysetbloodexposure = querysetbloodexposure.filter(tags__tagname = gender)
+            querysetbloodexposure = querysetbloodexposure.filter(tags__tagname = bloodexposure)
+            print(querysetbloodexposure)
+
+            querysetmenstrualhistory = DiagnosticTest.objects.all()
+            querysetmenstrualhistory = querysetmenstrualhistory.filter(tags__tagname = settings.CONFIG_VALUES["testtype_personalised"] )
+            querysetmenstrualhistory = querysetmenstrualhistory.filter(tags__tagname = gender)
+            querysetmenstrualhistory = querysetmenstrualhistory.filter(tags__tagname = menstrualhistory)
+            print(querysetmenstrualhistory)
+
             return render(request,"module/displaydiagnostictests.html",{
-            "diagnostictests_healthcheckup": querysethealthcheckup,
-            "diagnostictests_smokingstatus": querysetsmoking,
-            "diagnostictests_drinkingstatus": querysetdrinking
+            "querysethealthcheckup": querysethealthcheckup,
+            "querysetsmoking": querysetsmoking,
+            "querysetdrinking": querysetdrinking,
+            "querysetprevinfection": querysetprevinfection,
+            "querysetbloodexposure": querysetbloodexposure,
+            "querysetmenstrualhistory": querysetmenstrualhistory
             })
          return render(request,"module/displaydiagnostictests.html")
 

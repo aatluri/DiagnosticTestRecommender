@@ -29,9 +29,9 @@ def run():
 
 
 
-            test = DiagnosticTest(name=row[0],type = row[1], description=row[2],validity_days=row[3])
+            test = DiagnosticTest(name=row[0],type = row[1], description=row[2],validity_days=row[3],displayicon=row[4])
             test.save()
-            tags = [str(name) for name in row[4].split(',')]
+            tags = [str(name) for name in row[5].split(',')]
             for tag in tags:
                 t1 = Tag.objects.get(tagname=tag)
                 test.tags.add(t1)

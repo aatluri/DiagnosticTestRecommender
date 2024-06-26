@@ -1,34 +1,34 @@
-"name","type","description","validity_days","tags"
-"Complete Blood Count","General","blah",180,"OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP",
-"Urine Analysis","General","blah",180,"OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
-"Diabetic Profile","General","blah",180,"OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
-"Lipid Profile","General","blah",180,"OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
-"Thyroid Function","General","blah",180,"OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
-"Renal Function","General","blah",180,"OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
-"Liver Function","General","blah",180,"OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
-"Vitamin D","General","blah",180,"OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
-"Vitamin B12","General","blah",180,"OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
-"ECG","General","blah",180,"OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
-"Mammography","General","blah",180,"OLD,YOUNG,FEMALE,GENERAL HEALTH CHECKUP"
-"LBC-HPV","General","blah",180,"OLD,YOUNG,FEMALE,GENERAL HEALTH CHECKUP"
-"Serum Calicum Phosphorous","General","blah",180,"OLD,MALE,FEMALE,GENERAL HEALTH CHECKUP"
-"DXA Scan","General","blah",180,"OLD,MALE,FEMALE,GENERAL HEALTH CHECKUP"
-"Stool Examination","General","blah",180,"OLD,MALE,FEMALE,GENERAL HEALTH CHECKUP"
-"Advanced Lipid Profile","General","blah",180,"OLD,MALE,FEMALE,GENERAL HEALTH CHECKUP"
-"PSA","General","blah",180,"OLD,MALE,GENERAL HEALTH CHECKUP"
-"HRCT","Personalised","blah",180,"MALE,FEMALE,HEAVY SMOKER,PERSONALISED",
-"PFT","Personalised","blah",180,"MALE,FEMALE,HEAVY SMOKER,LIGHT SMOKER,PERSONALISED",
-"Spiometry","Personalised","blah",180,"MALE,FEMALE,HEAVY SMOKER,LIGHT SMOKER,PERSONALISED",
-"Impulse Oscillometry","Personalised","blah",180,"MALE,FEMALE,HEAVY SMOKER,LIGHT SMOKER,PERSONALISED",
-"Fibroscan","Personalised","blah",180,"MALE,FEMALE,REGULAR DRINKER,PERSONALISED",
-"AFP","Personalised","blah",180,"MALE,FEMALE,REGULAR DRINKER,OCCASIONAL DRINKER,PERSONALISED",
-"PIVIKA","Personalised","blah",180,"MALE,FEMALE,REGULAR DRINKER,OCCASIONAL DRINKER,PERSONALISED",
-"ViralLoadTest","Personalised","blah",180,"MALE,FEMALE,PREVIOUS INFECTION YES,PERSONALISED",
-"SerumHBSAG-HIV-HCV","Personalised","blah",180,"MALE,FEMALE,BLOOD EXPOSURE YES,PERSONALISED",
-"TBIC","Personalised","blah",180,"FEMALE,MENSTRUAL HISTORY EXCESSIVE BLEEDING,PERSONALISED",
-"Ferririn","Personalised","blah",180,"FEMALE,MENSTRUAL HISTORY EXCESSIVE BLEEDING,PERSONALISED",
-"Transferin Saturation","Personalised","blah",180,"FEMALE,MENSTRUAL HISTORY EXCESSIVE BLEEDING,PERSONALISED",
-"Serum haptoglobin","Personalised","blah",180,"FEMALE,MENSTRUAL HISTORY EXCESSIVE BLEEDING,PERSONALISED",
-"Follic Acid","Personalised","blah",180,"FEMALE,MENSTRUAL HISTORY EXCESSIVE BLEEDING,PERSONALISED",
-"FSH","Personalised","blah",180,"FEMALE,MENSTRUAL HISTORY IRREGULAR PERIODS,PERSONALISED",
-"LH","Personalised","blah",180,"FEMALE,MENSTRUAL HISTORY IRREGULAR PERIODS,PERSONALISED",
+"name","type","description","validity_days","displayicon","tags"
+"Complete Blood Count","General","Used to look at overall health",180,"cbc","OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"Urine Analysis","General"," Used to monitor certain health conditions and to diagnose urinary tract infections",180,"urine","OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"Diabetic Profile","General","Used to determine a diabetic or prediabetic condition",180,"diabetic","OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"Lipid Profile","General","Looks at the levels of cholesterol and other fats in your blood",180,"lipidprofile","OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"Thyroid Function","General","Used to check the function of the thyroid i.e an overactive or underactive thyroid",180,"thyroid","OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"Renal Function","General","Urine or blood tests that check how well the kidneys are working ",180,"renal","OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"Liver Function","General","Blood tests used to help find the cause of your symptoms and monitor liver disease or damage",180,"liver","OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"Vitamin D","General","Measures the level of vitamin D in your blood to make sure you have enough for your body to work well",180,"vitamind","OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"Vitamin B12","General","Measures the level of vitamin B12 (also called cobalamin) found in your blood",180,"vitaminb12","OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"ECG(Electrocardiogram)","General","Test to check the heartbeat. It records the electrical signals in the heart",180,"ecg","OLD,YOUNG,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"Mammography","General","An X-ray examination of the breast that is used to detect and diagnose breast disease in women",180,"mammography","OLD,YOUNG,FEMALE,GENERAL HEALTH CHECKUP"
+"LBC-HPV","General","Checks for cervical HPV infection that are likely to cause cervical cancer",180,"hpv","OLD,YOUNG,FEMALE,GENERAL HEALTH CHECKUP"
+"Serum Calicum Phosphorous","General","Blood test to measure the amounf of calcium and phosphorous in your blood",180,"calcium","OLD,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"DXA Scan","General","A DXA scan (bone density test) is a quick, painless way to check your bone health",180,"dxa","OLD,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"Stool Examination","General","Test that can detect germs in your stool to help diagnose gastrointestinal diseases and colon cancer",180,"stool","OLD,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"Advanced Lipid Profile","General","Performed because standard cholesterol tests may not completely represent risk for heart disease",180,"lipidprofile","OLD,MALE,FEMALE,GENERAL HEALTH CHECKUP"
+"PSA(Prostate Specific Antigen)","General","Blood test that measures the level of psa, a protein made by the prostrate is measured.",180,"psa","OLD,MALE,GENERAL HEALTH CHECKUP"
+"HRCT(High-Resolution Computed Tomography)","Personalised","Type of CT scan healthcare providers use to get detailed images of your lungs",180,"hrct","MALE,FEMALE,HEAVY SMOKER,PERSONALISED",
+"PFT(Pulmonary function Test)","Personalised","Shows how well your lungs are working with respect to volume, capacity,rate of flow and gax exchange",180,"pft","MALE,FEMALE,HEAVY SMOKER,LIGHT SMOKER,PERSONALISED",
+"Spiometry","Personalised","Measures how much air and how fast you can breathe in and out of your lungs",180,"spiometry","MALE,FEMALE,HEAVY SMOKER,LIGHT SMOKER,PERSONALISED",
+"Impulse Oscillometry","Personalised","It is a noninvasive method, which uses sound waves to measure respiratory mechanics",180,"ios","MALE,FEMALE,HEAVY SMOKER,LIGHT SMOKER,PERSONALISED",
+"Fibroscan","Personalised","non-invasive diagnostic device used to measure liver scarring or fibrosis caused by a number of liver diseases",180,"fibroscan","MALE,FEMALE,REGULAR DRINKER,PERSONALISED",
+"AFP","Personalised","A blood test performed to detect some liver disorders and some cancers in adults",180,"liver","MALE,FEMALE,REGULAR DRINKER,OCCASIONAL DRINKER,PERSONALISED",
+"PIVIKA","Personalised","blah",180,,"MALE,FEMALE,REGULAR DRINKER,OCCASIONAL DRINKER,PERSONALISED",
+"ViralLoadTest","Personalised","blah",180,,"MALE,FEMALE,PREVIOUS INFECTION YES,PERSONALISED",
+"SerumHBSAG-HIV-HCV","Personalised","blah",180,,"MALE,FEMALE,BLOOD EXPOSURE YES,PERSONALISED",
+"TBIC(Total Iron Binding Capacity)","Personalised","Measures your blood's ability to attach to iron and carry it throughout your body",180,"tbic","FEMALE,MENSTRUAL HISTORY EXCESSIVE BLEEDING,PERSONALISED",
+"Ferririn","Personalised","Measures a blood protein that contains iron and shows whether blood has too much or too little iron.",180,"ferrerin","FEMALE,MENSTRUAL HISTORY EXCESSIVE BLEEDING,PERSONALISED",
+"Transferin Saturation","Personalised","blah",180,,"FEMALE,MENSTRUAL HISTORY EXCESSIVE BLEEDING,PERSONALISED",
+"Serum haptoglobin","Personalised","blah",180,,"FEMALE,MENSTRUAL HISTORY EXCESSIVE BLEEDING,PERSONALISED",
+"Follic Acid","Personalised","blah",180,,"FEMALE,MENSTRUAL HISTORY EXCESSIVE BLEEDING,PERSONALISED",
+"FSH","Personalised","blah",180,,"FEMALE,MENSTRUAL HISTORY IRREGULAR PERIODS,PERSONALISED",
+"LH","Personalised","blah",180,,"FEMALE,MENSTRUAL HISTORY IRREGULAR PERIODS,PERSONALISED",

@@ -50,6 +50,9 @@
 												<div class="vi_right">
 													<h4 class="title">{{test.name}}</h4>
 													<p class="content">{{test.description}}</p>
+													<!--<p class="content"><b>Report Availability</b>: {{test.reportavailability}}</p>
+													<p class="content"><b>Sample Requirements</b>: {{test.samplerequirements}}</p>
+													<p class="content">{{test.specialinstructions}}</p>-->
 													<p class="content">The test is valid for {{test.validity_days}} days</p>
 													<p class="content">Sample Collection : Urine</p>
 
@@ -62,102 +65,101 @@
 								<br>
 								<h2>Tests Recommended for You</h2>
 								<br>
-
-									<div class="view_main">
-										<div class="view_wrap list-view" style="display: block;">
-											{% for test in querysetsmoking %}
-												<div class="view_item">
-													<div class="vi_left desktop-display">
-														{% if test.displayicon == "" %}
-															<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
-														{% else %}
-															<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
-														{%  endif %}
-													</div>
-													<div class="vi_right">
-														<p class="title">{{test.name}}</p>
-														<p class="content">{{test.description}}</p>
-														<p class="content">The test is valid for {{test.validity_days}} days</p>
-														<p class="content">Sample Collection : Urine</p>
-
-													</div>
+								<div class="view_main">
+									<div class="view_wrap list-view" style="display: block;">
+										{% for test in querysetsmoking %}
+											<div class="view_item">
+												<div class="vi_left desktop-display">
+													{% if test.displayicon == "" %}
+														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
+													{% else %}
+														<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
+													{%  endif %}
 												</div>
-											{% endfor %}
-											{% for test in querysetdrinking %}
-												<div class="view_item">
-													<div class="vi_left desktop-display">
-														{% if test.displayicon == "" %}
-															<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
-														{% else %}
-															<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
-														{%  endif %}
-													</div>
-													<div class="vi_right">
-														<p class="title">{{test.name}}</p>
-														<p class="content">{{test.description}}</p>
-														<p class="content">The test is valid for {{test.validity_days}} days</p>
-														<p class="content">Sample Collection : Urine</p>
+												<div class="vi_right">
+													<p class="title">{{test.name}}</p>
+													<p class="content">{{test.description}}</p>
+													<p class="content">The test is valid for {{test.validity_days}} days</p>
+													<p class="content">Sample Collection : Urine</p>
 
-													</div>
 												</div>
-											{% endfor %}
-											{% for test in querysetprevinfection %}
-												<div class="view_item">
-													<div class="vi_left desktop-display">
-														{% if test.displayicon == "" %}
-															<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
-														{% else %}
-															<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
-														{%  endif %}
-													</div>
-													<div class="vi_right">
-														<p class="title">{{test.name}}</p>
-														<p class="content">{{test.description}}</p>
-														<p class="content">The test is valid for {{test.validity_days}} days</p>
-														<p class="content">Sample Collection : Urine</p>
-
-													</div>
+											</div>
+										{% endfor %}
+										{% for test in querysetdrinking %}
+											<div class="view_item">
+												<div class="vi_left desktop-display">
+													{% if test.displayicon == "" %}
+														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
+													{% else %}
+														<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
+													{%  endif %}
 												</div>
-											{% endfor %}
-											{% for test in querysetbloodexposure %}
-												<div class="view_item">
-													<div class="vi_left desktop-display">
-														{% if test.displayicon == "" %}
-															<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
-														{% else %}
-															<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
-														{%  endif %}
-													</div>
-													<div class="vi_right">
-														<p class="title">{{test.name}}</p>
-														<p class="content">{{test.description}}</p>
-														<p class="content">The test is valid for {{test.validity_days}} days</p>
-														<p class="content">Sample Collection : Urine</p>
+												<div class="vi_right">
+													<p class="title">{{test.name}}</p>
+													<p class="content">{{test.description}}</p>
+													<p class="content">The test is valid for {{test.validity_days}} days</p>
+													<p class="content">Sample Collection : Urine</p>
 
-													</div>
 												</div>
-											{% endfor %}
-											{% for test in querysetmenstrualhistory %}
-												<div class="view_item">
-													<div class="vi_left desktop-display">
-														{% if test.displayicon == "" %}
-															<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
-														{% else %}
-															<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
-														{%  endif %}
-													</div>
-													<div class="vi_right">
-														<p class="title">{{test.name}}</p>
-														<p class="content">{{test.description}}</p>
-														<p class="content">The test is valid for {{test.validity_days}} days</p>
-														<p class="content">Sample Collection : Urine</p>
-
-													</div>
+											</div>
+										{% endfor %}
+										{% for test in querysetprevinfection %}
+											<div class="view_item">
+												<div class="vi_left desktop-display">
+													{% if test.displayicon == "" %}
+														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
+													{% else %}
+														<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
+													{%  endif %}
 												</div>
-											{% endfor %}
-										</div>
+												<div class="vi_right">
+													<p class="title">{{test.name}}</p>
+													<p class="content">{{test.description}}</p>
+													<p class="content">The test is valid for {{test.validity_days}} days</p>
+													<p class="content">Sample Collection : Urine</p>
 
+												</div>
+											</div>
+										{% endfor %}
+										{% for test in querysetbloodexposure %}
+											<div class="view_item">
+												<div class="vi_left desktop-display">
+													{% if test.displayicon == "" %}
+														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
+													{% else %}
+														<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
+													{%  endif %}
+												</div>
+												<div class="vi_right">
+													<p class="title">{{test.name}}</p>
+													<p class="content">{{test.description}}</p>
+													<p class="content">The test is valid for {{test.validity_days}} days</p>
+													<p class="content">Sample Collection : Urine</p>
+
+												</div>
+											</div>
+										{% endfor %}
+										{% for test in querysetmenstrualhistory %}
+											<div class="view_item">
+												<div class="vi_left desktop-display">
+													{% if test.displayicon == "" %}
+														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
+													{% else %}
+														<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
+													{%  endif %}
+												</div>
+												<div class="vi_right">
+													<p class="title">{{test.name}}</p>
+													<p class="content">{{test.description}}</p>
+													<p class="content">The test is valid for {{test.validity_days}} days</p>
+													<p class="content">Sample Collection : Urine</p>
+
+												</div>
+											</div>
+										{% endfor %}
 									</div>
+
+								</div>
 
 							</div>
 						</div>

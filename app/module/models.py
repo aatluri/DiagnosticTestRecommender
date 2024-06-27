@@ -35,6 +35,9 @@ class DiagnosticTest(models.Model):
     validity_days = models.IntegerField(null=True,blank=True)
     tags =  models.ManyToManyField(Tag,blank=True, editable=True)
     displayicon = models.CharField(max_length=150,blank=True)
+    specialinstructions = models.CharField(max_length=200,blank=True)
+    samplerequirements = models.CharField(max_length=200,blank=True)
+    reportavailability = models.CharField(max_length=150,blank=True)
 
     # When we do this, in the admin page when the diagnostic tests are displayed, it will show their name
     def __str__(self):

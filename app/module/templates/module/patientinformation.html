@@ -40,22 +40,61 @@
 								<br>
 								<div class="step-inner-content">
 									<div class="form-inner-area">
-										<input type="text" name="fullname" class="form-control " minlength="2" placeholder="First and last name *" required>
-										<input type="text" name="phonenumber" class="form-control " placeholder="Phone Number *" required>
-										<input type="email" name="email" class="form-control " placeholder="Email Address ">
-										<input type="date" name="dateofbirth" class="form-control " placeholder="Date of Birth " required>
+										<div class="patientinformation_item">
+											<div class="pi_left">
+													<img src="{% static "module/img/name.png" %}" alt="testimage">
+											</div>
+											<div class="pi_right">
+												<input type="text" name="fullname" class="form-control " minlength="2" placeholder="First and last name *" required>
+											</div>
+										</div>
+
+										<div class="patientinformation_item">
+											<div class="pi_left">
+													<img src="{% static "module/img/phonenumber.png" %}" alt="testimage">
+											</div>
+											<div class="pi_right">
+												<input type="text" name="phonenumber" class="form-control " placeholder="Phone Number *" required>
+											</div>
+										</div>
+
+										<div class="patientinformation_item">
+											<div class="pi_left">
+													<img src="{% static "module/img/email.png" %}" alt="testimage">
+											</div>
+											<div class="pi_right">
+												<input type="email" name="email" class="form-control " placeholder="Email Address ">
+											</div>
+										</div>
+
+										<div class="patientinformation_item">
+											<div class="pi_left">
+													<img src="{% static "module/img/dateofbirth.png" %}" alt="testimage">
+											</div>
+											<div class="pi_right">
+												<input type="date" name="dateofbirth" class="form-control " placeholder="Date of Birth " required>
+											</div>
+										</div>
 
 									</div>
 									<div class="gender-selection">
-										<h3>Gender:</h3>
-										<label>
-											<input type="radio" name="gender" value="Male" required>
-											<span class="checkmark"></span>{{configvalues.gender_male}}
-										</label>
-										<label>
-											<input type="radio" name="gender" value="Female" required>
-											<span class="checkmark"></span>{{configvalues.gender_female}}
-										</label>
+										<div class="patientinformation_item">
+											<div class="pi_left">
+													<img src="{% static "module/img/gender.png" %}" alt="testimage">
+											</div>
+											<div class="pi_right">
+												<h3>Gender:</h3>
+												<label>
+													<input type="radio" name="gender" value="Male" required>
+													<span class="checkmark"></span>{{configvalues.gender_male}}
+												</label>
+												<label>
+													<input type="radio" name="gender" value="Female" required>
+													<span class="checkmark"></span>{{configvalues.gender_female}}
+												</label>
+											</div>
+										</div>
+
 									</div>
 								</div>
 							</div>

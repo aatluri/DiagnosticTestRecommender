@@ -50,8 +50,16 @@
 										<p>We would like to get some information about your habits, previous infections etc.. Plese fill out the form and click on Submit.</p>
 									{%  endif %}
 									<hr>
-									<h4>SMOKING</h4>
-									<p>Please check the box that best describes your smoking habit.</p>
+									<div class="questionnaire_item">
+										<div class="qi_left">
+												<img src="{% static "module/img/smoking.png" %}" alt="testimage">
+										</div>
+										<div class="qi_right">
+											<h4>SMOKING</h4>
+											<p>Please check the box that best describes your smoking habit.</p>
+										</div>
+									</div>
+
 									<br>
 									<div class="budget-area">
 										<select name="smokingstatus">
@@ -106,9 +114,15 @@
 									</div>
 									-->
 									<hr>
-									<br>
-									<h4>ALCOHOL CONSUMPTION</h4>
-									<p>Please check the box that best describes your alcholol consumption.</p>
+									<div class="questionnaire_item">
+										<div class="qi_left">
+												<img src="{% static "module/img/alcoholconsumption.png" %}" alt="testimage">
+										</div>
+										<div class="qi_right">
+											<h4>ALCOHOL CONSUMPTION</h4>
+											<p>Please check the box that best describes your alcholol consumption.</p>
+										</div>
+									</div>
 									<br>
 									<div class="budget-area">
 										<select name="drinkingstatus">
@@ -163,9 +177,16 @@
 									</div>
 									-->
 									<hr>
-									<br>
-									<h4>PREVIOUS INFECTIONS</h4>
-									<p>Have you tested positive for any of the following infections : HIV, HBV, HCV</p>
+									<div class="questionnaire_item">
+										<div class="qi_left">
+												<img src="{% static "module/img/previnfection.png" %}" alt="testimage">
+										</div>
+										<div class="qi_right">
+											<h4>PREVIOUS INFECTIONS</h4>
+											<p>Have you tested positive for any of the following infections : HIV, HBV, HCV</p>
+										</div>
+									</div>
+
 									<br>
 									<div class="budget-area">
 										<select name="previnfection">
@@ -185,9 +206,17 @@
 										</div>
 									</div>
 									-->
-									<br>
-									<h4>BLOOD EXPOSURE</h4>
-									<p>Have you had a needle prick injury or exposure to blood or blood products in the last 3 months </p>
+									<hr>
+									<div class="questionnaire_item">
+										<div class="qi_left">
+												<img src="{% static "module/img/bloodexposure.png" %}" alt="testimage">
+										</div>
+										<div class="qi_right">
+											<h4>BLOOD EXPOSURE</h4>
+											<p>Have you had a needle prick injury or exposure to blood or blood products in the last 3 months </p>
+										</div>
+									</div>
+
 									<div class="budget-area">
 										<select name="bloodexposure">
 											<option{% if bloodexposure == configvalues.bloodexposure_no%} selected="selected" {% else %}  {%  endif %}>{{configvalues.bloodexposure_no}}</option>
@@ -198,8 +227,16 @@
 									{% if gender == configvalues.gender_female %}
 										<hr>
 										<br>
-										<h4>MENSTRUAL HISTORY</h4>
-										<p>Tation argumentum et usu, dicit viderer evertitur te has. Eu dictas concludaturque usu, facete detracto patrioque an per, lucilius pertinacia eu vel.</p>
+										<div class="questionnaire_item">
+											<div class="qi_left">
+													<img src="{% static "module/img/menstrualhistory.png" %}" alt="testimage">
+											</div>
+											<div class="qi_right">
+												<h4>MENSTRUAL HISTORY</h4>
+												<p>Please check the box that best describes your mentrual history</p>
+											</div>
+										</div>
+
 										<div class="budget-area">
 											<select name="menstrualhistory">
 												<option{% if menstrualhistory == configvalues.menstrualhistory_allgood%} selected="selected" {% else %}  {%  endif %}>{{configvalues.menstrualhistory_allgood}}</option>
@@ -213,8 +250,14 @@
 										{%  endif %}
 									<div class="step-content-area">
 										<hr>
-										<br>
-										<h4>COMMENTS</h4>
+										<div class="questionnaire_item">
+											<div class="qi_left">
+													<img src="{% static "module/img/comments.png" %}" alt="testimage">
+											</div>
+											<div class="qi_right">
+												<h4>COMMENTS</h4>
+											</div>
+										</div>
 										<div class="comment-box">
 											<p><i class="fas fa-comments"></i> Do you want to tell us anything else?</p>
 											<textarea name="comments" >{% if comments is not None %} {{comments}} {% else %} "Your Content Here" {%  endif %}</textarea>

@@ -63,56 +63,11 @@
 									<br>
 									<div class="budget-area">
 										<select name="smokingstatus">
-											<option{% if smokingstatus == configvalues.nonsmokervalue %} selected="selected" {% else %}  {%  endif %}>{{configvalues.nonsmokervalue}}</option>
+											<option{% if smokingstatus == configvalues.nonsmokervalue %} selected="selected" {% else %}  {%  endif %}>\{{configvalues.nonsmokervalue}}</option>
 											<option{% if smokingstatus == configvalues.heavysmokervalue%} selected="selected" {% else %}  {%  endif %}>{{configvalues.heavysmokervalue}}</option>
 											<option{% if smokingstatus == configvalues.lightsmokervalue%} selected="selected" {% else %}  {%  endif %}>{{configvalues.lightsmokervalue}}</option>
 										</select>
 									</div>
-									<!--
-									<div class="step-box">
-										<div class="row">
-											<div class="col-md-4">
-												<label class="step-box-content bg-white text-center relative-position {% if smokingstatus == "nonsmoker"%} active {% else %} inactive {%  endif %} ">
-													<span class="step-box-icon">
-														<img src="{% static "module/img/nonsmoker.png" %}" alt="">
-													</span>
-													<span class="step-box-text">
-														Non Smoker
-													</span>
-													<span class="service-check-option">
-														<span><input type="radio" name="smokingstatus" value="nonsmoker"  ></span>
-													</span>
-												</label>
-											</div>
-											<div class="col-md-4">
-												<label class="step-box-content bg-white text-center relative-position {% if smokingstatus == "regularsmoker"%} active {% else %} inactive {%  endif %}">
-													<span class="step-box-icon">
-														<img src="{% static "module/img/regularsmoker.png" %}" alt="">
-													</span>
-													<span class="step-box-text">
-														Heavy Smoker
-													</span>
-													<span class="service-check-option">
-														<span><input id="condition1" type="radio" name="smokingstatus" value="regularsmoker"></span>
-													</span>
-												</label>
-											</div>
-											<div class="col-md-4">
-												<label class="step-box-content bg-white text-center relative-position {% if smokingstatus == "lightsmoker"%} active {% else %} inactive {%  endif %}">
-													<span class="step-box-icon">
-														<img src="{% static "module/img/lightsmoker.png" %}" alt="">
-													</span>
-													<span class="step-box-text">
-														Light Smoker
-													</span>
-													<span class="service-check-option">
-														<span><input type="radio" name="smokingstatus" value="lightsmoker"></span>
-													</span>
-												</label>
-											</div>
-										</div>
-									</div>
-									-->
 									<hr>
 									<div class="questionnaire_item">
 										<div class="qi_left">

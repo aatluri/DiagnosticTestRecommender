@@ -131,12 +131,14 @@ def displaydiagnostictests(request):
             querysethealthcheckup = querysethealthcheckup.filter(tags__tagname = age_range)
             print(querysethealthcheckup)
 
+
             # Creating Query set for the Smoking Status.
             querysetsmoking = DiagnosticTest.objects.all()
             querysetsmoking = querysetsmoking.filter(tags__tagname = settings.CONFIG_VALUES["testtype_personalised"] )
             querysetsmoking = querysetsmoking.filter(tags__tagname = gender)
             querysetsmoking = querysetsmoking.filter(tags__tagname = smokingstatus)
             print(querysetsmoking)
+
 
             # Creating Query set for the Smoking Status.
             querysetdrinking = DiagnosticTest.objects.all()
@@ -164,13 +166,21 @@ def displaydiagnostictests(request):
             querysetmenstrualhistory = querysetmenstrualhistory.filter(tags__tagname = menstrualhistory)
             print(querysetmenstrualhistory)
 
+            if(querysetsmoking.count() ==0 and querysetdrinking.count() ==0 and querysetprevinfection.count() ==0 and querysetbloodexposure.count() ==0 and querysetmenstrualhistory.count() ==0):
+                  personalisedtests = "no"
+            else:
+                  personalisedtests = "yes"
+
+
+
             return render(request,"module/displaydiagnostictests.html",{
             "querysethealthcheckup": querysethealthcheckup,
             "querysetsmoking": querysetsmoking,
             "querysetdrinking": querysetdrinking,
             "querysetprevinfection": querysetprevinfection,
             "querysetbloodexposure": querysetbloodexposure,
-            "querysetmenstrualhistory": querysetmenstrualhistory
+            "querysetmenstrualhistory": querysetmenstrualhistory,
+            "personalisedtests": personalisedtests
             })
          return render(request,"module/displaydiagnostictests.html")
 

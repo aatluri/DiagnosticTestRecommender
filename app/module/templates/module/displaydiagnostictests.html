@@ -4,7 +4,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Recommended Diagnostic Testse</title>
+	<title>Recommended Diagnostic Tests</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="{% static "module/css/bootstrap.min.css" %}">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
@@ -157,6 +157,19 @@
 												</div>
 											</div>
 										{% endfor %}
+										{% if personalisedtests == "no"  %}
+											<div class="view_item">
+												<div class="vi_left desktop-display">
+														<img src="{% static "module/img/testicons/habits.png" %}" alt="testimage">
+												</div>
+												<div class="vi_right">
+													<p class="title">No Additional Tests Required</p>
+													<p class="content">Based on your habits, there are no other tests recommended for you</p>
+
+												</div>
+											</div>
+										{% else %}
+										{%  endif %}
 									</div>
 
 								</div>
@@ -173,8 +186,9 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
 	<script src="{% static "module/js/bootstrap.min.js" %}"></script>
 	<script src="{% static "module/js/conditionize.flexible.jquery.min.js" %}"></script>
+	<!--
 	<script src="{% static "module/js/main.js" %}"></script>
-	<script src="{% static "module/js/switch.js" %}"></script>
+	-->
 </body>
 
 </html>

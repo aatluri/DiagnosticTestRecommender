@@ -8,11 +8,18 @@
 Font load
 ===========*/
 @import url("https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,531;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,531;1,600;1,700;1,800;1,900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600&display=swap');
 /*=========
 Color Code
 ===========*/
-/*global area*/
-/*----------------------------------------------------*/
+
+
+
+
+/* ==========================================================================
+   Global CSS Settings
+
+   ========================================================================== */
 body {
   margin: 0;
   padding: 0;
@@ -27,17 +34,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/*
-The ::selection CSS pseudo-element applies styles to the part of a document that has been highlighted by the user
-(such as clicking and dragging the mouse across text).
-*/
+/* Applies styles to the part of a document that has been highlighted by the user (such as clicking and dragging the mouse across text).*/
 ::selection {
   color: #fff;
   background-color: #6b59d3;
 }
 
-
-
+/* Used in the buttons on each page.*/
 ul {
   margin: 0;
   padding: 0;
@@ -46,6 +49,7 @@ ul li {
   list-style: none;
 }
 
+/* Global settings that applied to the images in the website.*/
 img {
   max-width: 100%;
   height: auto;
@@ -69,21 +73,37 @@ h6 {
   margin: 0;
   font-family: "Jost", sans-serif;
 }
-
-/*
-pb-100 is used in the div container that holds the main content excluding the button at the bottom. The padding below defines the space between the main content and the button
-*/
-.pb-100 {
-  padding-bottom: 100px;
-}
+/*========================End of Global Settings================================================== */
 
 
+/* ==========================================================================
+   CSS Settings for the Wrapper Div within which the whole page is contained
+   ========================================================================== */
 
-/*margin:0 auto specifies: top and bottom margins are 0 right and left margins are auto*/
+/*This is the main wrapper container margin:0 auto specifies: top and bottom margins are 0 right and left margins are calculated based on the available width i.e 50% for each*/
 .wrapper {
   margin: 0 auto;
 }
 
+/*========================End of Wrapper Container================================================== */
+
+
+/* ==========================================================================
+   CSS Settings for Padding between the main content and the button at the bottom of the page
+   ========================================================================== */
+
+
+
+/*========================End of Button Padding================================================== */
+
+
+
+
+/* ==========================================================================
+   CSS Settings for the side area that contains the hero image
+
+
+   ========================================================================== */
 /*
 An element with position: fixed; is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled
 The steps-area-fixed is used by the hero image on the left side of the page that remains fixed.
@@ -100,11 +120,6 @@ The !important will override ALL previous styling rules for that specific proper
   padding-top: 0;
 }
 
-/*
-.steps-area-fixed .steps {
-  top: 70px;
-}
-*/
 
 /*
 Ensures that the form and the side hero image are next to each other.
@@ -133,19 +148,22 @@ The max-width CSS property sets the maximum width of an element. It prevents the
 
 
 
-/*Used for support with older browsers*/
+/*Used for support with older browsers
 .inner {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
-
-
-
-/*
-This is for the buttons at the bottom of the page.
-This essentially places the button to the bottom right of the page
 */
+
+
+/* ==========================================================================
+   CSS Settings for the buttons at the bottom of the page.
+
+
+   ========================================================================== */
+
+/* This essentially places the button to the bottom right of the page*/
 .actions {
   bottom: 0;
   right: 15%; /*specifies that the right edge of the button should be 15% to the left of the right edge of its parent container*/
@@ -160,7 +178,7 @@ This essentially places the button to the bottom right of the page
   display: -ms-flexbox;
   display: flex;
 }
-.actions li span,
+
 .actions li button {
   height: 75px;
   width: 210px;
@@ -177,30 +195,16 @@ This essentially places the button to the bottom right of the page
   margin-left: 10px;
 }
 
-
-.actions li[aria-disabled=true] span {
-  opacity: 0;
-  -webkit-transition: all 1s;
-  -o-transition: all 1s;
-  transition: all 1s;
-  display: none;
-}
+/*========================End of Button Settings================================================== */
 
 
-/*---------------------------------------------------- */
-/*wizard area*/
-/*----------------------------------------------------*/
 /* ==========================================================================
-   multistep css
-   ========================================================================== */
-.multisteps-form__progress {
-  padding-top: 60px;
-  height: 100%;
-}
+   CSS Settings for main form div i.e all the content on the right side of the page
 
+   ========================================================================== */
 
 /*
-This is for the main form div. The float left ensires it is placed next to the hero side image.
+The float left ensures it is placed next to the hero side image.
 The width 70% means that it should fill 70% of the containing block
 The position relative basically means that it should be positioned relative to its normal position. Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it to be adjusted away from its normal position
 */
@@ -212,9 +216,8 @@ The position relative basically means that it should be positioned relative to i
 
 
 /*
-This is for the main form div.
 ease - specifies a transition effect with a slow start, then fast, then end slowly (this is default)
-*/
+
 .multisteps-form__panel {
   position: absolute;
   top: 0;
@@ -230,18 +233,62 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
 }
 
 
+
 .multisteps-form__panel.js-active {
   opacity: 1;
   visibility: visible;
   overflow: visible;
   height: auto;
 }
+*/
 
+/*========================End of main form div================================================== */
+
+
+/* ==========================================================================
+   CSS Settings for div that holds the main content within the form
+
+   ========================================================================== */
+   /*
 .step-inner-content {
   padding-bottom: 115px;
   border-bottom: 2px solid #dfdfdf;
 }
 
+.step-inner-content {
+  border-bottom: none;
+  padding-bottom: 40px;
+}
+*/
+/*This is for the paragrah content in the questionnaire page
+.step-inner-content p {
+  margin-bottom: 30px;
+}
+*/
+/*
+.step-inner-content {
+  border-bottom: none;
+}
+
+
+.step-inner-content {
+  border-bottom: none;
+}
+*/
+
+/*========================End of form inner content div================================================== */
+
+
+/* ==========================================================================
+   CSS Settings for the content within the inner content div
+
+   ========================================================================== */
+   /*
+
+/*The padding below defines the space between the main content and the button on each page*/
+.form-content {
+  padding-bottom: 100px;
+}
 
 /* This is for the h2 content within the form*/
 .form-content h2 {
@@ -254,11 +301,11 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
 .form-content p {
   color: #5f5f63;
   font-size: 25px;
+
 }
 
-
 /*This impacts the input fields in the page where we take the patients basic information*/
-.form-inner-area input {
+.patientinformation_inputfields input {
   width: 100%;
   height: 70px;
   padding-left: 30px;
@@ -272,7 +319,7 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
   align-items: center
 }
 /*This impacts the input fields when we click on them, the border is highlighted based on the values below*/
-.form-inner-area input:focus {
+.patientinformation_inputfields input:focus {
   -webkit-box-shadow: 0px 5px 35px 0px rgba(107, 89, 211, 0.17);
           box-shadow: 0px 5px 35px 0px rgba(107, 89, 211, 0.17);
   border: 2px solid #6b59d3;
@@ -299,15 +346,7 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
 }
 
 
-.step-inner-content {
-  border-bottom: none;
-  padding-bottom: 40px;
-}
 
-/*This is for the paragra[h content in the questionnaire page*/
-.step-inner-content p {
-  margin-bottom: 30px;
-}
 
 
 /*Settings for the comments box*/
@@ -330,13 +369,7 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
   padding: 20px 30px;
 }
 
-.step-inner-content {
-  border-bottom: none;
-}
 
-.step-content-area {
-  padding-top: 55px;
-}
 
 /*The below are for the drop downs in the questionnaire page.*/
 .budget-area {
@@ -355,14 +388,152 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
   padding: 0px 30px;
 }
 
-.step-inner-content {
-  border-bottom: none;
+/*This applies to the patientinformation_item divs in the patientinformation page */
+.patientinformation_item {
+	background: #f9f9f9;
+	margin: 10px;
+	padding: 10px 20px;
+	display: flex;
+  align-items: center;
+
+}
+.patientinformation_item img{
+	width: 90px;
 }
 
-/*---------------------------------------------------- */
-/*wizard area*/
-/*----------------------------------------------------*/
+.patientinformation_item .pi_right{
+	margin-left: 25px;
+}
+
+.patientinformation_item .pi_right h4{
+  margin-top: 30px;
+}
+
+.patientinformation_item .pi_right {
+  width: 100%
+}
+
+
+.patientinformation_item .content{
+	margin: 5px 0;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 400;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.grid-view .patientinformation_item .pi_left{
+	margin-bottom: 10px;
+}
+
+
+/*This applies to the questionnaire_item divs in the questionnaire page */
+.questionnaire_item {
+	background: #f9f9f9;
+	margin: 10px;
+	padding: 10px 20px;
+	display: flex;
+  align-items: center;
+
+}
+.questionnaire_item img{
+	width: 150px;
+}
+
+.questionnaire_item .qi_right{
+	margin-left: 25px;
+}
+
+.questionnaire_item .qi_right h4{
+  margin-top: 30px;
+}
+
+.questionnaire_item .qi_right p{
+  margin-bottom: 30px;
+}
+
+/*
+.questionnaire_item .content{
+	margin: 5px 0;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 400;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.grid-view .questionnaire_item .qi_left{
+	margin-bottom: 10px;
+}
+*/
+
+
+
+/*This applies to the view_item divs in the displaytests page */
+
+.mobile-display{display:none}
+.desktop-display{display:block}
+@media (max-width:800px){
+.desktop-display {display:none}
+.mobile-display {display:block}
+		}
+
+
+.view_item img{
+	width: 75px;
+}
+
+.view_main{
+	background: #f9f9f9;
+	border-radius: 3px;
+	padding: 15px;
+}
+
+.list-view .view_item {
+	background: #f9f9f9;
+	border: 1px solid #e2efe1;
+	margin: 10px;
+	padding: 10px 20px;
+	display: flex;
+	align-items: center;
+}
+
+.list-view .view_item:last-child{
+	margin-bottom: 0;
+}
+
+.list-view .view_item .vi_left{
+	margin-right: 25px;
+
+}
+
+.view_item .title {
+	font-weight: 600;
+}
+
+.view_item .content{
+	margin: 5px 0;
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: 400;
+	font-family: 'Montserrat', sans-serif;
+}
+
+.grid-view .view_item .vi_left{
+	margin-bottom: 10px;
+}
+
+
+
+
+
+/*========================End of content within the inner content div================================================== */
+
+
+
+
 /* ==================================================
+From this point, the css settings are based on the screen pixel width.
+The best way to test these is to go to the page -> Inpect and create devices with these widths and play with these css settings.
 *	01 - media screen and (max-width: 1440px)
 *	02 - media screen and (max-width: 1280px)
 *	03 - media screen and (max-width: 1199px)
@@ -374,12 +545,20 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
 *	09 - media screen and (max-width: 380px)
 *	10 - media screen and (max-width: 320px)
 ================================================== */
-/*The below media applies when screen width is greater than 1441px*/
+
+/**
+
+The
+**/
+
+
+/*The below media applies when screen width is greater than 1441px
+*/
 @media screen and (min-width: 1441px) {
   .form-content {
-    padding-top: 110px;
-    padding-left: 120px;
-    padding-right: 15%;
+    padding-top: 10px; /*The amount of space to leave between the top of the page and start of the content*/
+    padding-left: 120px;/*The amount of space to leave between the side image and the content*/
+    padding-right: 15%;/*The amount of space betwwen the right side of the page and the content */
   }
 }
 
@@ -489,10 +668,12 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
     padding-right: 80px;
   }
 
+  /*
   .inner {
     display: inline-block;
     width: 100%;
   }
+
 
   .steps li {
     display: inline-block;
@@ -509,6 +690,7 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
     right: -100px;
     top: 20px;
   }
+  */
 
   .actions {
     padding: 30px 0px 50px;
@@ -630,17 +812,6 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
 }
 /*The below media applies when screen width is lower than 580px*/
 @media screen and (max-width: 580px) {
-  .steps li {
-    margin-right: 15px;
-    margin-left: 15px;
-  }
-
-  .steps li.js-active span:after {
-    width: 70px;
-    height: 2px !important;
-    right: -70px;
-    top: 19px;
-  }
 
   .form-content {
     width: 100%;
@@ -650,88 +821,9 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
 }
 /*The below media applies when screen width is lower than 460px*/
 @media screen and (max-width: 460px) {
-  .steps li {
-    margin-right: 10px;
-    margin-left: 10px;
-  }
-
-  .steps li.js-active span:after {
-    width: 60px;
-    right: -60px;
-  }
-}
-
-
-/*This applies to the questionnaire_item divs in the questionnaire page */
- .questionnaire_item {
-	background: #f9f9f9;
-	margin: 10px;
-	padding: 10px 20px;
-	display: flex;
-  align-items: center;
 
 }
-.questionnaire_item img{
-	width: 150px;
-}
-
-.questionnaire_item .qi_right{
-	margin-left: 25px;
-}
-
-.questionnaire_item .qi_right h4{
-  margin-top: 30px;
-}
-
-.questionnaire_item .content{
-	margin: 5px 0;
-	font-size: 14px;
-	line-height: 22px;
-	font-weight: 400;
-	font-family: 'Montserrat', sans-serif;
-}
-
-.grid-view .questionnaire_item .qi_left{
-	margin-bottom: 10px;
-}
 
 
-/*This applies to the patientinformation_item divs in the questionnaire page */
-.patientinformation_item {
-	background: #f9f9f9;
-	margin: 10px;
-	padding: 10px 20px;
-	display: flex;
-  align-items: center;
-
-}
-.patientinformation_item img{
-	width: 90px;
-}
-
-.patientinformation_item .pi_right{
-	margin-left: 25px;
-}
-
-.patientinformation_item .pi_right h4{
-  margin-top: 30px;
-}
-
-.patientinformation_item .pi_right {
-  width: 100%
-}
-
-
-.patientinformation_item .content{
-	margin: 5px 0;
-	font-size: 14px;
-	line-height: 22px;
-	font-weight: 400;
-	font-family: 'Montserrat', sans-serif;
-}
-
-.grid-view .patientinformation_item .pi_left{
-	margin-bottom: 10px;
-}
 
 /*---------------------------------------------------- */

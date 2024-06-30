@@ -1,39 +1,9 @@
+{% extends "base.html" %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+		{% block page_title%}Diagnostic Test Recommender-Display Tests {% endblock %}
 
-<head>
-	<meta charset="utf-8">
-	<title>Recommended Diagnostic Tests</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="{% static "module/css/bootstrap.min.css" %}">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.css">
-	<link rel="stylesheet" href="{% static "module/css/animate.min.css" %}">
-	<link rel="stylesheet" href="{% static "module/css/fontawesome-all.css" %}">
-	<link rel="stylesheet" href="{% static "module/css/style.css" %}">
-	<link rel="stylesheet" href="{% static "module/css/testdisplaystyles.css" %}">
-
-
-</head>
-
-<body>
-
-
-
-	<div class="wrapper">
-		<div class="steps-area steps-area-fixed">
-			<div class="image-holder">
-				<img src="{% static "module/img/side-img.jpg" %}" alt="">
-			</div>
-
-		</div>
-		<form class="multisteps-form__form" action="/" id="wizard" method="POST">
-			{% csrf_token %}
-			<div class="form-area position-relative">
-				<div class="multisteps-form__panel js-active" data-animation="slideHorz">
-					<div class="wizard-forms">
-						<div class="inner pb-100 clearfix">
-							<div class="form-content pera-content">
+		{% block page_content%}
+							<div class="form-content">
 								<h2>General Health Checkup Tests</h2>
 								<br>
 								<div class="view_main">
@@ -175,20 +145,4 @@
 								</div>
 
 							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</form>
-	</div>
-	<script src="{% static "module/js/jquery-3.3.1.min.js" %}"></script>
-	<script src="{% static "module/js/jquery.validate.min.js" %}"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
-	<script src="{% static "module/js/bootstrap.min.js" %}"></script>
-	<script src="{% static "module/js/conditionize.flexible.jquery.min.js" %}"></script>
-	<!--
-	<script src="{% static "module/js/main.js" %}"></script>
-	-->
-</body>
-
-</html>
+		{% endblock %}

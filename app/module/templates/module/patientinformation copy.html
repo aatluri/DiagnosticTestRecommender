@@ -1,0 +1,117 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>Diagnostic Test Questionnaire</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static "module/css/bootstrap.min.css" %}">
+	<link rel="stylesheet" href="{% static "module/css/animate.min.css" %}">
+	<link rel="stylesheet" href="{% static "module/css/fontawesome-all.css" %}">
+	<link rel="stylesheet" href="{% static "module/css/style.css" %}">
+
+</head>
+
+<body>
+
+
+
+	<div class="wrapper">
+		<div class="steps-area steps-area-fixed">
+			<div class="image-holder">
+				<img src="{% static "module/img/side-img.jpg" %}" alt="">
+			</div>
+
+		</div>
+		<form class="multisteps-form__form" action="/" id="wizard" method="POST">
+			{% csrf_token %}
+			<div class="form-area position-relative">
+				<div class="multisteps-form__panel js-active" data-animation="slideHorz">
+					<div class="wizard-forms">
+						<div class="inner pb-100 clearfix">
+							<div class="form-content pera-content">
+								<h2>Personalised Diagnostic Test Recommender</h2>
+								<p>Welcome to the Diagnostic Test Recommender page customised for you. We will be asking you some basic information followed by
+									information regarding your habits and family history. Based on this information we will recommend what tests you need to keep
+									track of your health.</p>
+								<br>
+								<br>
+								<div class="step-inner-content">
+									<div class="form-inner-area">
+										<div class="patientinformation_item">
+											<div class="pi_left">
+													<img src="{% static "module/img/name.png" %}" alt="testimage">
+											</div>
+											<div class="pi_right">
+												<input type="text" name="fullname" class="form-control " minlength="2" placeholder="First and last name *" required>
+											</div>
+										</div>
+
+										<div class="patientinformation_item">
+											<div class="pi_left">
+													<img src="{% static "module/img/phonenumber.png" %}" alt="testimage">
+											</div>
+											<div class="pi_right">
+												<input type="text" name="phonenumber" class="form-control " placeholder="Phone Number *" required>
+											</div>
+										</div>
+
+										<div class="patientinformation_item">
+											<div class="pi_left">
+													<img src="{% static "module/img/email.png" %}" alt="testimage">
+											</div>
+											<div class="pi_right">
+												<input type="email" name="email" class="form-control " placeholder="Email Address ">
+											</div>
+										</div>
+
+										<div class="patientinformation_item">
+											<div class="pi_left">
+													<img src="{% static "module/img/dateofbirth.png" %}" alt="testimage">
+											</div>
+											<div class="pi_right">
+												<input type="date" name="dateofbirth" class="form-control " placeholder="Date of Birth " required>
+											</div>
+										</div>
+
+									</div>
+									<div class="gender-selection">
+										<div class="patientinformation_item">
+											<div class="pi_left">
+													<img src="{% static "module/img/gender.png" %}" alt="testimage">
+											</div>
+											<div class="pi_right">
+												<h3>Gender:</h3>
+												<label>
+													<input type="radio" name="gender" value="Male" required>
+													<span class="checkmark"></span>{{configvalues.gender_male}}
+												</label>
+												<label>
+													<input type="radio" name="gender" value="Female" required>
+													<span class="checkmark"></span>{{configvalues.gender_female}}
+												</label>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="actions">
+							<ul>
+								<li><button type="submit" title="SUBMIT" formaction="/module/diagnostictestquestionaire">NEXT  <i class="fa"></i></button></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<script src="{% static "module/js/jquery-3.3.1.min.js" %}"></script>
+	<script src="{% static "module/js/jquery.validate.min.js" %}"></script>
+	<script src="{% static "module/js/bootstrap.min.js" %}"></script>
+	<script src="{% static "module/js/conditionize.flexible.jquery.min.js" %}"></script>
+</body>
+
+</html>

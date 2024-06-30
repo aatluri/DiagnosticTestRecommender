@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>{% block page_title%}Diagnostic Test Recommender {% endblock %}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static "module/css/bootstrap.min.css" %}">
+	<link rel="stylesheet" href="{% static "module/css/animate.min.css" %}">
+	<link rel="stylesheet" href="{% static "module/css/fontawesome-all.css" %}">
+	<link rel="stylesheet" href="{% static "module/css/style.css" %}">
+
+</head>
+
+<body>
+
+
+
+	<div class="wrapper">
+		<div class="steps-area steps-area-fixed">
+			<div class="image-holder">
+				<img src="{% static "module/img/side-img.jpg" %}" alt="">
+			</div>
+		</div>
+		<form class="multisteps-form__form" action="/" id="wizard" method="POST">
+			{% csrf_token %}
+			<div class="form-area">
+				<div class="multisteps-form__panel js-active" data-animation="slideHorz">
+
+        {% block page_content%}
+            <h1> Fall back content </h1>
+        {% endblock %}
+				</div>
+			</div>
+		</form>
+
+    </div>
+	<script src="{% static "module/js/jquery-3.3.1.min.js" %}"></script>
+	<script src="{% static "module/js/jquery.validate.min.js" %}"></script>
+	<script src="{% static "module/js/bootstrap.min.js" %}"></script>
+	<script src="{% static "module/js/conditionize.flexible.jquery.min.js" %}"></script>
+</body>
+
+</html>

@@ -29,7 +29,7 @@ def run():
 
 
 
-            test = DiagnosticTest(name=row[0],type = row[1], description=row[2],validity_days=row[3],displayicon=row[4],samplerequirements=row[6])
+            test = DiagnosticTest(name=row[0],type = row[1], description=row[2],validity_days=row[3],displayicon=row[4],samplerequirements=row[6],reportavailability=row[7])
             test.save()
             tags = [str(name) for name in row[5].split(',')]
             for tag in tags:

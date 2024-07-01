@@ -2,40 +2,35 @@
 
 ## Motivation behind this project
 1. While working on real world projects or ideas, we spend a lot of time on tasks like project setup, cicd pipeline set up, deployment, documentation than on the actual implementation of our idea.
-2. This project provides you a boiler plate project template with all the necessary things built in.
+2. This project provides you a boiler plate project template for a Django Webapplication with all the necessary things built in.
 3. All you need to do is download this code base and follow a few simple steps to get it running on your machine or on AWS.
 4. Then you can extend the logic inside this already deployed project to suit your needs.
 
 ## What does this project do
-1. This is a ready to go Django REST API project template.
+1. This is a ready to go Django Web Application project template.
 2. It has a complete CICD pipeline using GitHub Actions
 3. The CICD Pipeline includes, linting, testing and deployment.
 4. The project can be deployed locally as well as to the cloud like AWS or any other cloud servide.
-6. It exposes REST endpoints that allow us to get/put/post/delete users who will be accessing this endpoint
-7. It exposes REST endoints that allow us to get/put/post/delete an entity. In this case its a diagnostictest. What i mean here by a diagnostictest is tests like cbc, urine analysis etc...
-9. It provides the capability to assign tags to the diagnostictests being exposed and also has a search capability that allows us to search for diagnostictests based on these tags.
-10. It also has API documentation implemented.
+5. It consists of html/css website that are responsive to multiple screen sizes.
+6. The website is not very complex and can be easily extended to suit your needs.
 
 ## Real World Application of this project
-I build this api to be able to filter diagnostic tests based on tags assigned to them. The tags would be patient symptoms and/or their family health history details. The purpose was to use this in hospitals or labs so that based on the patients health history & symptoms, we can return the respective diagnostictests that are recommended.  But you can update the diagnostictest entity to be whatever you need. For example it could be a recipe with tags. You can always duplicate the tags and also have ingredients. Then you would be able to filter a recipe based on tags and ingredients.
+This website first takes in a persons basic information, some information about their habits, their personal & family health history. it then uses this information to recommend a personlaised suite of diagnostic tests that the patient should get done. For someone who has already given this information, it will pull their previous responses, allow them to make any changes and then recommends the tests based on this information.
 
 ## Technologies used in this project
 1. Python :  The programming language we will be using.
 2. Django : We will be using Django on top of the Python framework. It's basically a Python framework for building websites.
 3. Django Rest Framework : It adds features for building rest APIs. We will install this into Django.
-4. PostGres : PostGres will be the database we will be using to store data. We will be defining the database configuration inside our actual project source code, which means it's reusable for other developers who might be working on the project. Or if we want to shift from one machine to another and it's also reusable for our deployment environment. So we have the database and application on the same docker image which we will install on a server.
-5. Docker:  Docker is a software platform that allows you to build, test, and deploy applications quickly. Docker packages software into standardized units called containers that have everything the software needs to run including libraries, system tools, code, and runtime. We will be running a dockerized service of our API as well as a dockerized service of our database. This allows us to create a development environment that we can use to build our application. And also it allows us to easily deploy our application to a server.
-6. Swagger UI : This will serve as documentation for our API and also give us a browser API that we can use to test
-7. We will be using the Djanto Test Framework for the Unit Tests
-8. We will be using Flake8 for Code Linting.
-9. GitHub Actions : So GitHub actions is going to handle the CICD part. So it'll be used to run things like testing and linting every time we make changes to our code and push the code up to GitHub.
+4. Sqllite : Sqllite will be the database we will be using to store data.
+5. We will be using the Djanto Test Framework for the Unit Tests
+6. We will be using Flake8 for Code Linting.
+7. GitHub Actions : So GitHub actions is going to handle the CICD part. So it'll be used to run things like testing and linting every time we make changes to our code and push the code up to GitHub.
 
 
 ## Django Project Structure
-1. app/ : This is the main Django app which is called app
-2. app/core/ : This Django app contains code that is shared by multiple apps like the database definition using Django Models.
-3. app/user/ : This Django app has everything that is needed for our User APIs. This will be called user and it will handle things such as the user registration and creating authentication tokens.
-4. app/diagnostictest/ : This Django app will have everything to do with our diagnostictest api
+1. app/ : This is the main folder that consists of the Django project and apps
+2. app/app/ : This is the Django project
+3. app/module/ : This is one of the Django apps that consists of most of the business logic of our web application
 
 ## Contents of this code base
 This code base as mentioned above is a Django REST API application.

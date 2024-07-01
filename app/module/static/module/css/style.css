@@ -73,7 +73,6 @@ h6 {
   margin: 0;
   font-family: "Jost", sans-serif;
 }
-/*========================End of Global Settings================================================== */
 
 
 /* ==========================================================================
@@ -85,18 +84,6 @@ h6 {
   margin: 0 auto;
 }
 
-/*========================End of Wrapper Container================================================== */
-
-
-/* ==========================================================================
-   CSS Settings for Padding between the main content and the button at the bottom of the page
-   ========================================================================== */
-
-
-
-/*========================End of Button Padding================================================== */
-
-
 
 
 /* ==========================================================================
@@ -106,29 +93,29 @@ h6 {
    ========================================================================== */
 /*
 An element with position: fixed; is positioned relative to the viewport, which means it always stays in the same place even if the page is scrolled
-The steps-area-fixed is used by the hero image on the left side of the page that remains fixed.
+The side-hero-image is used by the hero image on the left side of the page that remains fixed.
 We set its width to 25%. We can set it to 100% as well , it will just increase the width of the image to its original size.
 The !important will override ALL previous styling rules for that specific property on that element
 */
-.steps-area-fixed {
+.side-hero-image {
   position: fixed;
   width: 25% !important;
 }
 
 /*This defines the top padding for the side hero image to 0*/
-.steps-area-fixed  {
+.side-hero-image  {
   padding-top: 0;
 }
 
 
 /*
 Ensures that the form and the side hero image are next to each other.
-The steps-area-fixed is used in the div for the side hero image on the left side of the screen
-The multisteps-form__form is the div that holds of the form content.
+The side-hero-image is used in the div for the side hero image on the left side of the screen
+The diagnostictestrecommender_form is the div that holds of the form content.
 This margin-left basically ensures that the form does not appear on top of the image but to the right of it.
 And since we set the position of the image to be fixed above, when we scroll , only the form contents are scrolled.
 */
-.steps-area-fixed + .multisteps-form__form {
+.side-hero-image + .diagnostictestrecommender_form {
   margin-left: 500px;
 }
 
@@ -139,22 +126,13 @@ The float:left ensures that the next div after this div i.e the form is placed n
 The overflow-hidden specifies that if the image exceeds the div, to hide the remaining portion.
 The max-width CSS property sets the maximum width of an element. It prevents the used value of the width property from becoming larger than the value specified by max-width.
 */
-.steps-area {
+.side-hero-image {
   float: left;
   width: 30%;
   overflow: hidden;
   max-width: 500px;
 }
 
-
-
-/*Used for support with older browsers
-.inner {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-*/
 
 
 /* ==========================================================================
@@ -195,114 +173,56 @@ The max-width CSS property sets the maximum width of an element. It prevents the
   margin-left: 10px;
 }
 
-/*========================End of Button Settings================================================== */
 
 
 /* ==========================================================================
-   CSS Settings for main form div i.e all the content on the right side of the page
 
-   ========================================================================== */
+
+CSS Settings for diagnostictestrecommender_form div i.e all the content on the right side of the page
+
+========================================================================== */
 
 /*
 The float left ensures it is placed next to the hero side image.
 The width 70% means that it should fill 70% of the containing block
 The position relative basically means that it should be positioned relative to its normal position. Setting the top, right, bottom, and left properties of a relatively-positioned element will cause it to be adjusted away from its normal position
 */
-.multisteps-form__form {
+.diagnostictestrecommender_form {
   position: relative;
   width: 70%;
   float: left;
 }
 
-
-/*
-ease - specifies a transition effect with a slow start, then fast, then end slowly (this is default)
-
-.multisteps-form__panel {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  opacity: 0;
-  visibility: hidden;
-  -webkit-transition: 0.3s ease;
-  -o-transition: 0.3s ease;
-  transition: 0.3s ease;
-  overflow: hidden;
-  height: 0;
-}
-
-
-
-.multisteps-form__panel.js-active {
-  opacity: 1;
-  visibility: visible;
-  overflow: visible;
-  height: auto;
-}
-*/
-
-/*========================End of main form div================================================== */
-
-
-/* ==========================================================================
-   CSS Settings for div that holds the main content within the form
-
-   ========================================================================== */
-   /*
-.step-inner-content {
-  padding-bottom: 115px;
-  border-bottom: 2px solid #dfdfdf;
-}
-
-.step-inner-content {
-  border-bottom: none;
-  padding-bottom: 40px;
-}
-*/
-/*This is for the paragrah content in the questionnaire page
-.step-inner-content p {
-  margin-bottom: 30px;
-}
-*/
-/*
-.step-inner-content {
-  border-bottom: none;
-}
-
-
-.step-inner-content {
-  border-bottom: none;
-}
-*/
-
-/*========================End of form inner content div================================================== */
-
-
-/* ==========================================================================
-   CSS Settings for the content within the inner content div
-
-   ========================================================================== */
-   /*
-
 /*The padding below defines the space between the main content and the button on each page*/
-.form-content {
+.diagnostictestrecommender_form_content {
   padding-bottom: 100px;
 }
 
 /* This is for the h2 content within the form*/
-.form-content h2 {
+.diagnostictestrecommender_form_content h2 {
   font-size: 50px;
   font-weight: 700;
   padding: 85px 0px 20px 0px;
 }
 
 /* This is for the paragrapth content within the form div in all the pages*/
-.form-content p {
+.diagnostictestrecommender_form_content p {
   color: #5f5f63;
   font-size: 25px;
 
 }
+
+
+
+/* ==========================================================================
+
+
+CSS Settings for the right side content of the patientinformation.html page
+
+
+   ========================================================================== */
+/*
+
 
 /*This impacts the input fields in the page where we take the patients basic information*/
 .patientinformation_inputfields input {
@@ -325,6 +245,33 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
   border: 2px solid #6b59d3;
 }
 
+/*This applies to the patientinformation_item divs in the patientinformation page */
+.patientinformation_item {
+	background: #f9f9f9;
+	margin: 10px;
+	padding: 10px 20px;
+	display: flex;
+  align-items: center;
+
+}
+.patientinformation_item img{
+	width: 90px;
+}
+
+.patientinformation_item .patientinformation_item_right{
+	margin-left: 25px;
+}
+
+.patientinformation_item .patientinformation_item_right h4{
+  margin-top: 30px;
+}
+
+.patientinformation_item .patientinformation_item_right {
+  width: 100%
+}
+
+/*This applies to the gender-selection  divs in the patientinformation page */
+
 /*leaves a margin at the top for the gender selection box*/
 .gender-selection {
   margin-top: 35px;
@@ -344,9 +291,6 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
   margin-right: 40px;
   display: inline-block;
 }
-
-
-
 
 
 /*Settings for the comments box*/
@@ -371,60 +315,16 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
 
 
 
-/*The below are for the drop downs in the questionnaire page.*/
-.budget-area {
-  margin-bottom: 25px;
-}
-.budget-area p {
-  color: #5f5f63;
-  font-size: 23px;
-  font-weight: 700;
-  padding-bottom: 10px;
-}
-.budget-area select {
-  width: 100%;
-  height: 60px;
-  border: 2px solid #ededed;
-  padding: 0px 30px;
-}
-
-/*This applies to the patientinformation_item divs in the patientinformation page */
-.patientinformation_item {
-	background: #f9f9f9;
-	margin: 10px;
-	padding: 10px 20px;
-	display: flex;
-  align-items: center;
-
-}
-.patientinformation_item img{
-	width: 90px;
-}
-
-.patientinformation_item .pi_right{
-	margin-left: 25px;
-}
-
-.patientinformation_item .pi_right h4{
-  margin-top: 30px;
-}
-
-.patientinformation_item .pi_right {
-  width: 100%
-}
 
 
-.patientinformation_item .content{
-	margin: 5px 0;
-	font-size: 14px;
-	line-height: 22px;
-	font-weight: 400;
-	font-family: 'Montserrat', sans-serif;
-}
+/* ==========================================================================
 
-.grid-view .patientinformation_item .pi_left{
-	margin-bottom: 10px;
-}
+
+CSS Settings for the right side content of the diagnosticquestionnaire.html page
+
+
+   ========================================================================== */
+/*
 
 
 /*This applies to the questionnaire_item divs in the questionnaire page */
@@ -440,36 +340,47 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
 	width: 150px;
 }
 
-.questionnaire_item .qi_right{
+.questionnaire_item .questionnaire_item_right{
 	margin-left: 25px;
 }
 
-.questionnaire_item .qi_right h4{
+.questionnaire_item .questionnaire_item_right h4{
   margin-top: 30px;
 }
 
-.questionnaire_item .qi_right p{
+.questionnaire_item .questionnaire_item_right p{
   margin-bottom: 30px;
 }
 
+/*The below are for the drop downs in the questionnaire page.*/
+.questionnaire_dropdown {
+  margin-bottom: 25px;
+}
+.questionnaire_dropdown p {
+  color: #5f5f63;
+  font-size: 23px;
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+.questionnaire_dropdown select {
+  width: 100%;
+  height: 60px;
+  border: 2px solid #ededed;
+  padding: 0px 30px;
+}
+
+
+
+/* ==========================================================================
+
+
+CSS Settings for the right side content of the displaydiagnostictests.html page
+
+
+   ========================================================================== */
 /*
-.questionnaire_item .content{
-	margin: 5px 0;
-	font-size: 14px;
-	line-height: 22px;
-	font-weight: 400;
-	font-family: 'Montserrat', sans-serif;
-}
 
-.grid-view .questionnaire_item .qi_left{
-	margin-bottom: 10px;
-}
-*/
-
-
-
-/*This applies to the view_item divs in the displaytests page */
-
+/*We use this to not show the image of the test when the screen goes below 800px width */
 .mobile-display{display:none}
 .desktop-display{display:block}
 @media (max-width:800px){
@@ -478,17 +389,17 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
 		}
 
 
-.view_item img{
+.displaydiagnostictests_item img{
 	width: 75px;
 }
 
-.view_main{
+.displaydiagnostictests_items{
 	background: #f9f9f9;
 	border-radius: 3px;
 	padding: 15px;
 }
 
-.list-view .view_item {
+.displaydiagnostictests_list_view .displaydiagnostictests_item {
 	background: #f9f9f9;
 	border: 1px solid #e2efe1;
 	margin: 10px;
@@ -497,20 +408,20 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
 	align-items: center;
 }
 
-.list-view .view_item:last-child{
+.displaydiagnostictests_list_view .displaydiagnostictests_item:last-child{
 	margin-bottom: 0;
 }
 
-.list-view .view_item .vi_left{
+.displaydiagnostictests_list_view .displaydiagnostictests_item .displaydiagnostictests_item_left{
 	margin-right: 25px;
 
 }
 
-.view_item .title {
+.displaydiagnostictests_item .title {
 	font-weight: 600;
 }
 
-.view_item .content{
+.displaydiagnostictests_item .content{
 	margin: 5px 0;
 	font-size: 14px;
 	line-height: 22px;
@@ -518,15 +429,6 @@ ease - specifies a transition effect with a slow start, then fast, then end slow
 	font-family: 'Montserrat', sans-serif;
 }
 
-.grid-view .view_item .vi_left{
-	margin-bottom: 10px;
-}
-
-
-
-
-
-/*========================End of content within the inner content div================================================== */
 
 
 
@@ -546,16 +448,11 @@ The best way to test these is to go to the page -> Inpect and create devices wit
 *	10 - media screen and (max-width: 320px)
 ================================================== */
 
-/**
-
-The
-**/
-
 
 /*The below media applies when screen width is greater than 1441px
 */
 @media screen and (min-width: 1441px) {
-  .form-content {
+  .diagnostictestrecommender_form_content {
     padding-top: 10px; /*The amount of space to leave between the top of the page and start of the content*/
     padding-left: 120px;/*The amount of space to leave between the side image and the content*/
     padding-right: 15%;/*The amount of space betwwen the right side of the page and the content */
@@ -564,23 +461,15 @@ The
 
 /*The below media applies when screen width is lower than 1440px*/
 @media screen and (max-width: 1440px) {
-  .steps-area-fixed {
+  .side-hero-image {
     position: fixed;
   }
 
-  .steps-area-fixed + .multisteps-form__form {
+  .side-hero-image + .diagnostictestrecommender_form {
     margin-left: 360px;
   }
 
-  .steps {
-    left: 250px;
-  }
-
-  .step-box-content .step-box-text h3 {
-    font-size: 22px;
-  }
-
-  .form-content {
+  .diagnostictestrecommender_form_content {
     padding-top: 55px;
     padding-left: 80px;
     padding-right: 4%;
@@ -591,19 +480,19 @@ The
     bottom: 0;
   }
 
-  .form-content h2 {
+  .diagnostictestrecommender_form_content h2 {
     font-size: 42px;
   }
 
-  .form-content p {
+  .diagnostictestrecommender_form_content p {
     font-size: 22px;
   }
 
-  .image-holder {
+  .side-hero-image-holder {
     width: 490px;
     overflow: hidden;
   }
-  .image-holder img {
+  .side-hero-image-holder img {
     -o-object-fit: cover;
        object-fit: cover;
     height: 100%;
@@ -614,83 +503,53 @@ The
 
 /*The below media applies when screen width is lower than 1280px*/
 @media screen and (max-width: 1280px) {
-  .form-content h2 {
+  .diagnostictestrecommender_form_content h2 {
     font-size: 40px;
   }
 
-  .form-content p {
+  .diagnostictestrecommender_form_content p {
     font-size: 22px;
   }
 
-  .budget-area .opti-list li {
+  .questionnaire_dropdown .opti-list li {
     margin-right: 15px;
   }
-  .budget-area .opti-list li:last-child {
+  .questionnaire_dropdown .opti-list li:last-child {
     margin-right: 0;
   }
 }
 /*The below media applies when screen width is lower than 1199px*/
 @media screen and (max-width: 1199px) {
-  .steps-area-fixed {
+  .side-hero-image {
     position: static;
     width: 100% !important;
   }
 
-  .steps-area .steps {
-    left: 0;
-    width: 100%;
-    text-align: center;
-  }
 
-  .steps-area-fixed + .multisteps-form__form {
+  .side-hero-image + .diagnostictestrecommender_form {
     margin-left: 0;
   }
 
-  .steps-area,
-.multisteps-form__form {
+  .side-hero-image,.diagnostictestrecommender_form {
     width: 100%;
     max-width: 100%;
   }
 
-  .image-holder {
+  .side-hero-image-holder {
     width: 100%;
     height: 250px;
     display: block;
     overflow: hidden;
   }
-  .image-holder img {
+  .side-hero-image-holder img {
     height: auto;
     width: 100%;
   }
 
-  .form-content {
+  .diagnostictestrecommender_form_content {
     width: 100%;
     padding-right: 80px;
   }
-
-  /*
-  .inner {
-    display: inline-block;
-    width: 100%;
-  }
-
-
-  .steps li {
-    display: inline-block;
-    margin-right: 80px;
-  }
-
-  .steps li span:before {
-    display: none;
-  }
-
-  .steps li.js-active span:after {
-    width: 100px;
-    height: 2px !important;
-    right: -100px;
-    top: 20px;
-  }
-  */
 
   .actions {
     padding: 30px 0px 50px;
@@ -699,7 +558,7 @@ The
     float: right;
   }
 
-  .form-content h2 {
+  .diagnostictestrecommender_form_content h2 {
     padding: 50px 0px 20px 0px;
   }
 
@@ -712,15 +571,12 @@ The
 }
 /*The below media applies when screen width is lower than 991px*/
 @media screen and (max-width: 991px) {
-  .pb-100, .pb-200 {
-    padding-bottom: 30px;
-  }
 
-  .wizard {
+  .diagnostictestrecommender {
     max-width: 100%;
   }
 
-  .image-holder img {
+  .side-hero-image-holder img {
     height: 521px;
     -o-object-fit: cover;
        object-fit: cover;
@@ -731,63 +587,27 @@ The
     padding-right: 10px;
   }
 
-  .steps {
-    left: 0;
-    right: 0;
-    text-align: center;
-  }
 }
 /*The below media applies when screen width is lower than 767px*/
 @media screen and (max-width: 767px) {
-  .steps li {
-    display: inline-block;
-    margin-right: 30px;
-    margin-left: 30px;
-  }
 
-  .form-content h2 {
+  .diagnostictestrecommender_form_content h2 {
     font-size: 26px;
   }
 
-  .form-content p {
+  .diagnostictestrecommender_form_content p {
     font-size: 18px;
   }
 
-  .step-box-content {
-    margin-bottom: 30px;
-  }
-
-  .step-progress {
-    margin-left: 0;
-    margin-bottom: 30px;
-  }
-
-  .form-content .step-no {
-    display: block;
-    margin-bottom: 30px;
-  }
-
-  .upload-documents .upload-option {
-    float: none;
-  }
-
-  .budget-area .opti-list li {
+  .questionnaire_dropdown .opti-list li {
     margin-bottom: 20px;
   }
 
-  .plan-icon-text {
-    margin-bottom: 20px;
-  }
-
-  .plan-icon-text {
-    width: 100%;
-  }
-
-  .step-inner-content {
+  .patientinformation_form_content {
     padding-bottom: 50px;
   }
 
-  .budget-area .opti-list li {
+  .questionnaire_dropdown .opti-list li {
     font-size: 14px;
   }
 
@@ -813,15 +633,11 @@ The
 /*The below media applies when screen width is lower than 580px*/
 @media screen and (max-width: 580px) {
 
-  .form-content {
+  .diagnostictestrecommender_form_content {
     width: 100%;
     padding-right: 30px;
     padding-left: 30px;
   }
-}
-/*The below media applies when screen width is lower than 460px*/
-@media screen and (max-width: 460px) {
-
 }
 
 

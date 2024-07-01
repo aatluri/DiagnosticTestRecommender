@@ -3,21 +3,21 @@
 		{% block page_title%}Diagnostic Test Recommender-Display Tests {% endblock %}
 
 		{% block page_content%}
-							<div class="form-content">
+							<div class="diagnostictestrecommender_form_content">
 								<h2>General Health Checkup Tests</h2>
 								<br>
-								<div class="view_main">
-									<div class="view_wrap list-view" style="display: block;">
+								<div class="displaydiagnostictests_items">
+									<div class="displaydiagnostictests_list_view" style="display: block;">
 										{% for test in querysethealthcheckup %}
-											<div class="view_item">
-												<div class="vi_left desktop-display">
+											<div class="displaydiagnostictests_item">
+												<div class="displaydiagnostictests_item_left desktop-display">
 													{% if test.displayicon == "" %}
 														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
 													{% else %}
 														<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
 													{%  endif %}
 												</div>
-												<div class="vi_right">
+												<div class="displaydiagnostictests_item_right">
 													<h4 class="title">{{test.name}}</h4>
 													<p class="content">{{test.description}}</p>
 													<!--<p class="content"><b>Report Availability</b>: {{test.reportavailability}}</p>
@@ -35,18 +35,18 @@
 								<br>
 								<h2>Tests Recommended for You</h2>
 								<br>
-								<div class="view_main">
-									<div class="view_wrap list-view" style="display: block;">
+								<div class="displaydiagnostictests_items">
+									<div class="displaydiagnostictests_list_view" style="display: block;">
 										{% for test in querysetsmoking %}
-											<div class="view_item">
-												<div class="vi_left desktop-display">
+											<div class="displaydiagnostictests_item">
+												<div class="displaydiagnostictests_item_left desktop-display">
 													{% if test.displayicon == "" %}
 														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
 													{% else %}
 														<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
 													{%  endif %}
 												</div>
-												<div class="vi_right">
+												<div class="displaydiagnostictests_item_right">
 													<p class="title">{{test.name}}</p>
 													<p class="content">{{test.description}}</p>
 													<p class="content">The test is valid for {{test.validity_days}} days</p>
@@ -56,15 +56,15 @@
 											</div>
 										{% endfor %}
 										{% for test in querysetdrinking %}
-											<div class="view_item">
-												<div class="vi_left desktop-display">
+											<div class="displaydiagnostictests_item">
+												<div class="displaydiagnostictests_item_left desktop-display">
 													{% if test.displayicon == "" %}
 														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
 													{% else %}
 														<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
 													{%  endif %}
 												</div>
-												<div class="vi_right">
+												<div class="displaydiagnostictests_item_right">
 													<p class="title">{{test.name}}</p>
 													<p class="content">{{test.description}}</p>
 													<p class="content">The test is valid for {{test.validity_days}} days</p>
@@ -74,15 +74,15 @@
 											</div>
 										{% endfor %}
 										{% for test in querysetprevinfection %}
-											<div class="view_item">
-												<div class="vi_left desktop-display">
+											<div class="displaydiagnostictests_item">
+												<div class="displaydiagnostictests_item_left desktop-display">
 													{% if test.displayicon == "" %}
 														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
 													{% else %}
 														<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
 													{%  endif %}
 												</div>
-												<div class="vi_right">
+												<div class="displaydiagnostictests_item_right">
 													<p class="title">{{test.name}}</p>
 													<p class="content">{{test.description}}</p>
 													<p class="content">The test is valid for {{test.validity_days}} days</p>
@@ -92,15 +92,15 @@
 											</div>
 										{% endfor %}
 										{% for test in querysetbloodexposure %}
-											<div class="view_item">
-												<div class="vi_left desktop-display">
+											<div class="displaydiagnostictests_item">
+												<div class="displaydiagnostictests_item_left desktop-display">
 													{% if test.displayicon == "" %}
 														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
 													{% else %}
 														<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
 													{%  endif %}
 												</div>
-												<div class="vi_right">
+												<div class="displaydiagnostictests_item_right">
 													<p class="title">{{test.name}}</p>
 													<p class="content">{{test.description}}</p>
 													<p class="content">The test is valid for {{test.validity_days}} days</p>
@@ -110,15 +110,15 @@
 											</div>
 										{% endfor %}
 										{% for test in querysetmenstrualhistory %}
-											<div class="view_item">
-												<div class="vi_left desktop-display">
+											<div class="displaydiagnostictests_item">
+												<div class="displaydiagnostictests_item_left desktop-display">
 													{% if test.displayicon == "" %}
 														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
 													{% else %}
 														<img src="{% static "module/img/testicons/"|add:test.displayicon|add:".png" %}" alt="testimage">
 													{%  endif %}
 												</div>
-												<div class="vi_right">
+												<div class="displaydiagnostictests_item_right">
 													<p class="title">{{test.name}}</p>
 													<p class="content">{{test.description}}</p>
 													<p class="content">The test is valid for {{test.validity_days}} days</p>
@@ -128,11 +128,11 @@
 											</div>
 										{% endfor %}
 										{% if personalisedtests == "no"  %}
-											<div class="view_item">
-												<div class="vi_left desktop-display">
+											<div class="displaydiagnostictests_item">
+												<div class="displaydiagnostictests_item_left desktop-display">
 														<img src="{% static "module/img/testicons/habits.png" %}" alt="testimage">
 												</div>
-												<div class="vi_right">
+												<div class="displaydiagnostictests_item_right">
 													<p class="title">No Additional Tests Required</p>
 													<p class="content">Based on your habits, there are no other tests recommended for you</p>
 

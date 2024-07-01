@@ -9,7 +9,11 @@ class DiagnosticTestAdmin(admin.ModelAdmin):
     # This changes the admin interface display for the tags field in the diagnostic test to be horizontal instead of vertical. tags is the name of the field in diagnostictest
     filter_horizontal = ("tags",)
     list_filter = ("tags",)
-    list_display = ("name","description","validity_days")  # Add 'pk' to the list_display
+    list_display = ("name","validity_days")  # Add 'pk' to the list_display
+
+class PatientAdmin(admin.ModelAdmin):
+    list_display = ("fullname","phonenumber","dateofbirth","gender")  # Add 'pk' to the list_display
+
 
 class TagsAdmin(admin.ModelAdmin):
     list_display = ('pk', '__str__',)  # Add 'pk' to the list_display
@@ -18,4 +22,4 @@ class TagsAdmin(admin.ModelAdmin):
 
 admin.site.register(DiagnosticTest,DiagnosticTestAdmin)
 admin.site.register(Tag,TagsAdmin)
-admin.site.register(Patient)
+admin.site.register(Patient,PatientAdmin)

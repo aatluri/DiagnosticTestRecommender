@@ -3,47 +3,47 @@
 		{% block page_title%}Diagnostic Test Recommender-Gather Basic Information {% endblock %}
 
 		{% block page_content%}
-						<div class="form-content">
+						<div class="diagnostictestrecommender_form_content">
 							<h2>Personalised Diagnostic Test Recommender</h2>
 							<p>Welcome to the Diagnostic Test Recommender page customised for you. We will be asking you some basic information followed by
 								information regarding your habits and family history. Based on this information we will recommend what tests you need to keep
 								track of your health.</p>
 							<br>
 							<br>
-							<div class="step-inner-content">
+							<div class="patientinformation_form_content">
 								<div class="patientinformation_inputfields">
 									<div class="patientinformation_item">
-										<div class="pi_left">
+										<div class="patientinformation_item_left">
 												<img src="{% static "module/img/name.png" %}" alt="testimage">
 										</div>
-										<div class="pi_right">
+										<div class="patientinformation_item_right">
 											<input type="text" name="fullname" class="form-control " minlength="2" placeholder="First and last name *" required>
 										</div>
 									</div>
 
 									<div class="patientinformation_item">
-										<div class="pi_left">
+										<div class="patientinformation_item_left">
 												<img src="{% static "module/img/phonenumber.png" %}" alt="testimage">
 										</div>
-										<div class="pi_right">
+										<div class="patientinformation_item_right">
 											<input type="text" name="phonenumber" class="form-control " placeholder="Phone Number *" required>
 										</div>
 									</div>
 
 									<div class="patientinformation_item">
-										<div class="pi_left">
+										<div class="patientinformation_item_left">
 												<img src="{% static "module/img/email.png" %}" alt="testimage">
 										</div>
-										<div class="pi_right">
+										<div class="patientinformation_item_right">
 											<input type="email" name="email" class="form-control " placeholder="Email Address ">
 										</div>
 									</div>
 
 									<div class="patientinformation_item">
-										<div class="pi_left">
+										<div class="patientinformation_item_left">
 												<img src="{% static "module/img/dateofbirth.png" %}" alt="testimage">
 										</div>
-										<div class="pi_right">
+										<div class="patientinformation_item_right">
 											<input type="date" name="dateofbirth" class="form-control " placeholder="Date of Birth " required>
 										</div>
 									</div>
@@ -51,10 +51,10 @@
 								</div>
 								<div class="gender-selection">
 									<div class="patientinformation_item">
-										<div class="pi_left">
+										<div class="patientinformation_item_left">
 												<img src="{% static "module/img/gender.png" %}" alt="testimage">
 										</div>
-										<div class="pi_right">
+										<div class="patientinformation_item_right">
 											<h3>Gender:</h3>
 											<label>
 												<input type="radio" name="gender" value="Male" required>

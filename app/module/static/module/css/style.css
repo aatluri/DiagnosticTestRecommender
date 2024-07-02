@@ -389,14 +389,15 @@ CSS Settings for the right side content of the displaydiagnostictests.html page
 		}
 
 
-.displaydiagnostictests_item img{
-	width: 75px;
-}
 
 .displaydiagnostictests_items{
 	background: #f9f9f9;
 	border-radius: 3px;
 	padding: 15px;
+}
+
+.displaydiagnostictests_item img{
+	width: 75px;
 }
 
 .displaydiagnostictests_list_view .displaydiagnostictests_item {
@@ -414,7 +415,6 @@ CSS Settings for the right side content of the displaydiagnostictests.html page
 
 .displaydiagnostictests_list_view .displaydiagnostictests_item .displaydiagnostictests_item_left{
 	margin-right: 25px;
-
 }
 
 .displaydiagnostictests_item .title {
@@ -639,6 +639,18 @@ The best way to test these is to go to the page -> Inpect and create devices wit
     padding-left: 30px;
   }
 }
+
+/*The below media applies when we are trying to print*/
+@media print {
+  /* All your print styles go here */
+  .no-print {
+    display: none !important;
+  }
+  .side-hero-image + .diagnostictestrecommender_form {
+      margin-left: 0px;
+    }
+}
+
 
 
 

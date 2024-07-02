@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.contrib.staticfiles',
+    'django.contrib.staticfiles', # required for django to load the functionality it needs to deal with static files
     'django_extensions',  # This is for the runscript functionality to load data into the database.
     'module'
 ]
@@ -126,7 +126,8 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# These values are used in the html pages when setting the options of the dropdown. They are also used when we create the initial data in the database as the tag values
+# so that when we try to filter we dont run into case sensitivity issues.
 CONFIG_VALUES =   {
                 "nonsmokervalue" : "NON SMOKER",
                 "heavysmokervalue" : "HEAVY SMOKER",

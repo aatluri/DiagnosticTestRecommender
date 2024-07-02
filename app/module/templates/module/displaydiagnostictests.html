@@ -1,16 +1,32 @@
-{% extends "base.html" %}
-{% load static %}
-		{% block page_title%}Diagnostic Test Recommender-Display Tests {% endblock %}
+<!--
 
+	This page inherits from the base.html page.
+	What happens here is that it takes the content of the base.html file and then replaces the placeholders with the content from here.
+	So for example the page_title in the base.html is replaced by the value between the block page_title and endblock in this file.
+	SImilarly for page_content
+-->
+{% extends "base.html" %}
+<!--The load static needs to be included in every file that loads static files.-->
+{% load static %}
+		<!-- This replaces the placeholder for page_title in the base.html file-->
+		{% block page_title%}Diagnostic Test Recommender-Display Tests {% endblock %}
+		<!-- This replaces the placeholder for page_content in the base.html file-->
 		{% block page_content%}
+							<!-- This is the html code for the content of the General Health check up tests
+							It basically loops through the queryhealthcheckup queryset
+							For each test, it does the following:
+								1. Uses the displayicon that we set in the database. it takes the displayicon value and looks for an image with that name in the specified location.
+								2. Uses data from the database like name, description etc and displays that.
+
+							-->
 							<div class="diagnostictestrecommender_form_content">
 								<h2>General Health Checkup Tests</h2>
 								<br>
 								<div class="displaydiagnostictests_items">
 									<div class="displaydiagnostictests_list_view" style="display: block;">
 										{% for test in querysethealthcheckup %}
-											<div class="displaydiagnostictests_item">
-												<div class="displaydiagnostictests_item_left desktop-display">
+											<div class="displaydiagnostictests_item" id="{{test.name}}">
+												<div class="displaydiagnostictests_item_left desktop-display no-print">
 													{% if test.displayicon == "" %}
 														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
 													{% else %}
@@ -19,15 +35,23 @@
 												</div>
 												<div class="displaydiagnostictests_item_right">
 													<h4 class="title">{{test.name}}</h4>
-													<p class="content">{{test.description}}</p>
-													<p class="content"><b>Procedure</b>: {{test.samplerequirements}}</p>
-													<p class="content"><b>Report Availability</b>: {{test.reportavailability}}</p>
-													<p class="content">The test is valid for {{test.validity_days}} days</p>
+													<p class="content no-print">{{test.description}}</p>
+													<p class="content no-print"><b>Procedure</b>: {{test.samplerequirements}}</p>
+													<p class="content no-print"><b>Report Availability</b>: {{test.reportavailability}}</p>
+													<p class="content no-print">The test is valid for {{test.validity_days}} days</p>
+													<button class="no-print" type="button"onclick="removeTest('{{test.name}}')">Remove</button>
 												</div>
 											</div>
 										{% endfor %}
 									</div>
 								</div>
+									<!-- This is the html code for the content of the Personalised tests based on the questionnaire
+									It basically loops through the each of the querysets
+									For each test, it does the following:
+										1. Uses the displayicon that we set in the database. it takes the displayicon value and looks for an image with that name in the specified location.
+										2. Uses data from the database like name, description etc and displays that.
+
+									-->
 								<br>
 								<br>
 								<h2>Tests Recommended for You</h2>
@@ -35,8 +59,8 @@
 								<div class="displaydiagnostictests_items">
 									<div class="displaydiagnostictests_list_view" style="display: block;">
 										{% for test in querysetsmoking %}
-											<div class="displaydiagnostictests_item">
-												<div class="displaydiagnostictests_item_left desktop-display">
+											<div class="displaydiagnostictests_item" id="{{test.name}}" >
+												<div class="displaydiagnostictests_item_left desktop-display  no-print">
 													{% if test.displayicon == "" %}
 														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
 													{% else %}
@@ -45,17 +69,18 @@
 												</div>
 												<div class="displaydiagnostictests_item_right">
 													<p class="title">{{test.name}}</p>
-													<p class="content">{{test.description}}</p>
-													<p class="content"><b>Procedure</b>: {{test.samplerequirements}}</p>
-													<p class="content"><b>Report Availability</b>: {{test.reportavailability}}</p>
-													<p class="content">The test is valid for {{test.validity_days}} days</p>
+													<p class="content no-print">{{test.description}}</p>
+													<p class="content no-print"><b>Procedure</b>: {{test.samplerequirements}}</p>
+													<p class="content no-print"><b>Report Availability</b>: {{test.reportavailability}}</p>
+													<p class="content no-print">The test is valid for {{test.validity_days}} days</p>
+													<button class="no-print" type="button"onclick="removeTest('{{test.name}}')">Remove</button>
 
 												</div>
 											</div>
 										{% endfor %}
 										{% for test in querysetdrinking %}
-											<div class="displaydiagnostictests_item">
-												<div class="displaydiagnostictests_item_left desktop-display">
+											<div class="displaydiagnostictests_item" id="{{test.name}}">
+												<div class="displaydiagnostictests_item_left desktop-display no-print">
 													{% if test.displayicon == "" %}
 														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
 													{% else %}
@@ -64,17 +89,18 @@
 												</div>
 												<div class="displaydiagnostictests_item_right">
 													<p class="title">{{test.name}}</p>
-													<p class="content">{{test.description}}</p>
-													<p class="content"><b>Procedure</b>: {{test.samplerequirements}}</p>
-													<p class="content"><b>Report Availability</b>: {{test.reportavailability}}</p>
-													<p class="content">The test is valid for {{test.validity_days}} days</p>
+													<p class="content no-print">{{test.description}}</p>
+													<p class="content no-print"><b>Procedure</b>: {{test.samplerequirements}}</p>
+													<p class="content no-print"><b>Report Availability</b>: {{test.reportavailability}}</p>
+													<p class="content no-print">The test is valid for {{test.validity_days}} days</p>
+													<button class="no-print" type="button"onclick="removeTest('{{test.name}}')">Remove</button>
 
 												</div>
 											</div>
 										{% endfor %}
 										{% for test in querysetprevinfection %}
-											<div class="displaydiagnostictests_item">
-												<div class="displaydiagnostictests_item_left desktop-display">
+											<div class="displaydiagnostictests_item" id="{{test.name}}">
+												<div class="displaydiagnostictests_item_left desktop-display no-print">
 													{% if test.displayicon == "" %}
 														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
 													{% else %}
@@ -83,17 +109,18 @@
 												</div>
 												<div class="displaydiagnostictests_item_right">
 													<p class="title">{{test.name}}</p>
-													<p class="content">{{test.description}}</p>
-													<p class="content"><b>Procedure</b>: {{test.samplerequirements}}</p>
-													<p class="content"><b>Report Availability</b>: {{test.reportavailability}}</p>
-													<p class="content">The test is valid for {{test.validity_days}} days</p>
+													<p class="content no-print">{{test.description}}</p>
+													<p class="content no-print"><b>Procedure</b>: {{test.samplerequirements}}</p>
+													<p class="content no-print"><b>Report Availability</b>: {{test.reportavailability}}</p>
+													<p class="content no-print">The test is valid for {{test.validity_days}} days</p>
+													<button class="no-print" type="button"onclick="removeTest('{{test.name}}')">Remove</button>
 
 												</div>
 											</div>
 										{% endfor %}
 										{% for test in querysetbloodexposure %}
-											<div class="displaydiagnostictests_item">
-												<div class="displaydiagnostictests_item_left desktop-display">
+											<div class="displaydiagnostictests_item" id="{{test.name}}">
+												<div class="displaydiagnostictests_item_left desktop-display no-print">
 													{% if test.displayicon == "" %}
 														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
 													{% else %}
@@ -102,17 +129,18 @@
 												</div>
 												<div class="displaydiagnostictests_item_right">
 													<p class="title">{{test.name}}</p>
-													<p class="content">{{test.description}}</p>
-													<p class="content"><b>Procedure</b>: {{test.samplerequirements}}</p>
-													<p class="content"><b>Report Availability</b>: {{test.reportavailability}}</p>
-													<p class="content">The test is valid for {{test.validity_days}} days</p>
+													<p class="content no-print">{{test.description}}</p>
+													<p class="content no-print"><b>Procedure</b>: {{test.samplerequirements}}</p>
+													<p class="content no-print"><b>Report Availability</b>: {{test.reportavailability}}</p>
+													<p class="content no-print">The test is valid for {{test.validity_days}} days</p>
+													<button class="no-print" type="button"onclick="removeTest('{{test.name}}')">Remove</button>
 
 												</div>
 											</div>
 										{% endfor %}
 										{% for test in querysetmenstrualhistory %}
-											<div class="displaydiagnostictests_item">
-												<div class="displaydiagnostictests_item_left desktop-display">
+											<div class="displaydiagnostictests_item" id="{{test.name}}">
+												<div class="displaydiagnostictests_item_left desktop-display no-print">
 													{% if test.displayicon == "" %}
 														<img src="{% static "module/img/testicons/generic.png" %}" alt="testimage">
 													{% else %}
@@ -121,23 +149,24 @@
 												</div>
 												<div class="displaydiagnostictests_item_right">
 													<p class="title">{{test.name}}</p>
-													<p class="content">{{test.description}}</p>
-													<p class="content"><b>Procedure</b>: {{test.samplerequirements}}</p>
-													<p class="content"><b>Report Availability</b>: {{test.reportavailability}}</p>
-													<p class="content">The test is valid for {{test.validity_days}} days</p>
+													<p class="content no-print">{{test.description}}</p>
+													<p class="content no-print"><b>Procedure</b>: {{test.samplerequirements}}</p>
+													<p class="content no-print"><b>Report Availability</b>: {{test.reportavailability}}</p>
+													<p class="content no-print">The test is valid for {{test.validity_days}} days</p>
+													<button class="no-print" type="button"onclick="removeTest('{{test.name}}')">Remove</button>
 
 												</div>
 											</div>
 										{% endfor %}
 										{% if personalisedtests == "no"  %}
-											<div class="displaydiagnostictests_item">
-												<div class="displaydiagnostictests_item_left desktop-display">
+											<div class="displaydiagnostictests_item" >
+												<div class="displaydiagnostictests_item_left desktop-display no-print">
 														<img src="{% static "module/img/testicons/habits.png" %}" alt="testimage">
 												</div>
 												<div class="displaydiagnostictests_item_right">
 													<p class="title">No Additional Tests Required</p>
-													<p class="content"><b>Report Availability</b>: {{test.reportavailability}}</p>
-													<p class="content">Based on your habits, there are no other tests recommended for you</p>
+													<p class="content no-print"><b>Report Availability</b>: {{test.reportavailability}}</p>
+													<p class="content no-print">Based on your habits, there are no other tests recommended for you</p>
 												</div>
 											</div>
 										{% else %}

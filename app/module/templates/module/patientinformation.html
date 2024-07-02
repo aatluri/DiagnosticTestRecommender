@@ -1,7 +1,16 @@
-{% extends "base.html" %}
-{% load static %}
-		{% block page_title%}Diagnostic Test Recommender-Gather Basic Information {% endblock %}
+<!--
 
+	This page inherits from the base.html page.
+	What happens here is that it takes the content of the base.html file and then replaces the placeholders with the content from here.
+	So for example the page_title in the base.html is replaced by the value between the block page_title and endblock in this file.
+	SImilarly for page_content
+-->
+{% extends "base.html" %}
+<!--The load static needs to be included in every file that loads static files.-->
+{% load static %}
+		<!-- This replaces the placeholder for page_title in the base.html file-->
+		{% block page_title%}Diagnostic Test Recommender-Gather Basic Information {% endblock %}
+		<!-- This replaces the placeholder for page_content in the base.html file-->
 		{% block page_content%}
 						<div class="diagnostictestrecommender_form_content">
 							<h2>Personalised Diagnostic Test Recommender</h2>
@@ -10,6 +19,7 @@
 								track of your health.</p>
 							<br>
 							<br>
+							<!--The below is the html code for each of the items in the queestionnaire-->
 							<div class="patientinformation_form_content">
 								<div class="patientinformation_inputfields">
 									<div class="patientinformation_item">
@@ -70,6 +80,7 @@
 								</div>
 							</div>
 						</div>
+						<!--Html for the next button. When the button is clicked, it navigates to the page mentioned below with a POST request.-->
 						<div class="actions">
 							<ul>
 								<li><button type="submit" title="SUBMIT" formaction="/module/diagnostictestquestionaire">NEXT  <i class="fa"></i></button></li>

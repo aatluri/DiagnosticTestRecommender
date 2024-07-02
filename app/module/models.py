@@ -16,7 +16,7 @@ class Patient(models.Model):
     comments = models.TextField(blank=True)
     age_range = models.CharField(max_length=150,blank=True)
 
-    # When we do this, in the admin page when the diagnostic tests are displayed, it will show their name
+    # When we do this, in the admin page when the Patients are displayed, it will show their name
     def __str__(self):
         return self.fullname
 
@@ -24,6 +24,7 @@ class Patient(models.Model):
 class Tag(models.Model):
     tagname = models.CharField(max_length=100,unique=True)
 
+    # When we do this, in the admin page when the tags are displayed, it will show their name
     def __str__(self):
         return self.tagname
 

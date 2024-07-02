@@ -1,9 +1,16 @@
+<!-- The load static is needed in all files that use static files.-->
 {% load static %}
+<!--
+	This is the base page that contains all the common html content that all the pages need like the linking to the css and js scripts etc..
+	Each of the other html pages inherits this page.
+-->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 	<meta charset="utf-8">
+	<!-- The page_title block is a placeholder that is replaced when this is inherited by a child page.
+	The default value is also set just in case-->
 	<title>{% block page_title%}Diagnostic Test Recommender {% endblock %}</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="{% static "module/css/bootstrap.min.css" %}">
@@ -14,14 +21,20 @@
 </head>
 
 <body>
+
 	<div class="wrapper">
-		<div class="side-hero-image">
+		<!--
+		This is the html code for the side hero image that appears on each page. Since its common for all the pages, we included it in the base.html page.
+		-->
+		<div class="side-hero-image no-print">
 			<div class="side-hero-image-holder">
 				<img src="{% static "module/img/side-img.jpg" %}" alt="">
 			</div>
 		</div>
 		<form class="diagnostictestrecommender_form" action="/" id="diagnostictestrecommender" method="POST">
 		{% csrf_token %}
+		<!-- The page_content block is a placeholder that is replaced when this is inherited by a child page.
+		The default value is also set just in case-->
         {% block page_content%}
             <h1> Fall back content </h1>
         {% endblock %}
@@ -32,6 +45,17 @@
 	<script src="{% static "module/js/jquery.validate.min.js" %}"></script>
 	<script src="{% static "module/js/bootstrap.min.js" %}"></script>
 	<script src="{% static "module/js/conditionize.flexible.jquery.min.js" %}"></script>
+	<script>
+		function removeTest(id) {
+			//alert("You Pressed:  " + id);
+		  var x = document.getElementById(id);
+		  if (x.style.display === "none") {
+			x.style.display = "flex";
+		  } else {
+			x.style.display = "none";
+		  }
+		}
+	</script>
 </body>
 
 </html>

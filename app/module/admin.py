@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Tag, DiagnosticTest,Patient
+from .models import Tag, DiagnosticTest,Patient, QuestionnaireResponses
 # Register your models here.
 
 
@@ -21,8 +21,12 @@ class PatientAdmin(admin.ModelAdmin):
 class TagsAdmin(admin.ModelAdmin):
     list_display = ('pk', '__str__',)
 
+class QuestionnaireResponsesAdmin(admin.ModelAdmin):
+    list_display = ('pk',"patient","smokingstatus","drinkingstatus","previnfection","bloodexposure","menstrualhistory")  # List of columns that you want to show on the admin page
+
 
 # Register the models
 admin.site.register(DiagnosticTest,DiagnosticTestAdmin)
 admin.site.register(Tag,TagsAdmin)
 admin.site.register(Patient,PatientAdmin)
+admin.site.register(QuestionnaireResponses,QuestionnaireResponsesAdmin)

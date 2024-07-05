@@ -400,7 +400,7 @@ CSS Settings for the right side content of the displaydiagnostictests.html page
 	width: 75px;
 }
 
-.displaydiagnostictests_list_view .displaydiagnostictests_item {
+.displaydiagnostictests_list_view .displaydiagnostictests_item{
 	background: #f9f9f9;
 	border: 1px solid #e2efe1;
 	margin: 10px;
@@ -408,7 +408,17 @@ CSS Settings for the right side content of the displaydiagnostictests.html page
 	display: flex;
 	align-items: center;
 }
+.removebutton {
+  border: none;
+	margin: 0px;
+  background: #f9f9f9;
+	display: flex;
+	align-items: right;
+}
 
+.removebutton img {
+  width: 20px;
+}
 .displaydiagnostictests_list_view .displaydiagnostictests_item:last-child{
 	margin-bottom: 0;
 }

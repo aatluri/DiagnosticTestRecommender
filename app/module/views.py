@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.urls import reverse
 from django.template.loader import render_to_string
-from .models import Tag, DiagnosticTest,Patient
+from .models import Tag, DiagnosticTest,Patient, QuestionnaireResponses
 from datetime import date
 import datetime
 from django.conf import settings
@@ -42,39 +42,68 @@ def returndiagnostictestquestionaire(request):
                   age_range=settings.CONFIG_VALUES["age_range_young"]
             # We try to see if this patient already exists by searching on name, gender, phonenumber and date of birth.
             patient = Patient()
+            response=QuestionnaireResponses()
+            smokingstatus=None
+            drinkingstatus=None
+            previnfection=None
+            bloodexposure=None
+            menstrualhistory=None
+            comments=None
             if Patient.objects.filter(fullname=fullname,gender=gender,phonenumber=phonenumber,dateofbirth=dateofbirth).exists(): # Patient  exists
-                    patient = Patient.objects.get(fullname=fullname,gender=gender,phonenumber=phonenumber,dateofbirth=dateofbirth)
-                     # if the patienr exists, then we update the email address and age range and
-                    patient.emailaddress=emailaddress
-                    patient.age_range = age_range
-                    # We retrieve the choices of the patient from the database.
-                    smokingstatus=patient.smokingstatus
-                    drinkingstatus=patient.drinkingstatus
-                    previnfection=patient.previnfection
-                    menstrualhistory=patient.menstrualhistory
-                    bloodexposure = patient.bloodexposure
-                    comments=patient.comments
-                    patient.save()
-                    # We set this variable so that it can be used later.
-                    existingpatient="yes"
-            else:   # Patient does not exist
-                    # if the patient does not exist then we create a new patient object, update the basic information and set the choices like smoking etc... to Nonw.
-                    patient = Patient()
-                    patient.fullname=fullname
-                    patient.phonenumber=phonenumber
-                    patient.emailaddress=emailaddress
-                    patient.dateofbirth=dateofbirth
-                    patient.gender=gender
-                    patient.age_range=age_range
-                    patient.save()
-                    smokingstatus=None
-                    drinkingstatus=None
-                    previnfection=None
-                    menstrualhistory=None
-                    bloodexposure=None
-                    comments=None
-                    # We set this variable so that it can be used later.
-                    existingpatient="no"
+                  print("patient exists")
+                  patient = Patient.objects.get(fullname=fullname,gender=gender,phonenumber=phonenumber,dateofbirth=dateofbirth)
+                  # if the patienr exists, then we update the email address and age range and
+                  patient.emailaddress=emailaddress
+                  patient.age_range = age_range
+                  patient.save()
+                  # We retrieve the choices of the patient from the database.
+                  if QuestionnaireResponses.objects.filter(patient=patient).exists():
+                        print("patient exists -> QuestionnaireResponses exists")
+                        response = QuestionnaireResponses.objects.get(patient=patient)
+                        smokingstatus=response.smokingstatus
+                        drinkingstatus=response.drinkingstatus
+                        previnfection=response.previnfection
+                        menstrualhistory=response.menstrualhistory
+                        bloodexposure = response.bloodexposure
+                        comments=response.comments
+                  else:
+                        print("patient exists -> QuestionnaireResponse does not exist for patient")
+                        response.patient=patient
+                        response.smokingstatus=smokingstatus
+                        response.drinkingstatus=drinkingstatus
+                        response.previnfection=previnfection
+                        response.menstrualhistory=menstrualhistory
+                        response.bloodexposure=bloodexposure
+                        response.comments=comments
+                        response.patient=patient
+                        response.save()
+                        print("patient exists -> QuestionnaireResponse does not exist for patient -> Created response for patient")
+
+                  # We set this variable so that it can be used later.
+                  existingpatient="yes"
+            else: # Patient does not exist
+                  # if the patient does not exist then we create a new patient object, update the basic information and set the choices like smoking etc... to None.
+                  print("patient does not exist")
+                  patient = Patient()
+                  patient.fullname=fullname
+                  patient.phonenumber=phonenumber
+                  patient.emailaddress=emailaddress
+                  patient.dateofbirth=dateofbirth
+                  patient.gender=gender
+                  patient.age_range=age_range
+                  patient.save()
+                  print("patient does not exist->patient created")
+                  response.patient=patient
+                  response.smokingstatus=smokingstatus
+                  response.drinkingstatus=drinkingstatus
+                  response.previnfection=previnfection
+                  response.menstrualhistory=menstrualhistory
+                  response.bloodexposure=bloodexposure
+                  response.comments=comments
+                  response.save()
+                  print("patient does not exist->patient created->response created")
+                  # We set this variable so that it can be used later.
+                  existingpatient="no"
             # We store the below variables in the session so that we can pass the below attributes passed to the next view
             request.session['fullname'] = fullname
             request.session['phonenumber'] = phonenumber
@@ -129,22 +158,28 @@ def displaydiagnostictests(request):
             comments = request.POST["comments"]
             # Look for mensturalhistory value only if gender is female.
             if gender == settings.CONFIG_VALUES["gender_female"]:
-                menstrualhistory = request.POST["menstrualhistory"]
+                  menstrualhistory = request.POST["menstrualhistory"]
             else:
-                menstrualhistory=None
+                  menstrualhistory=None
             print(fullname,phonenumber,dateofbirth,gender,age_range,smokingstatus,drinkingstatus,previnfection,bloodexposure,menstrualhistory)
             # Retreive the patient so that we can update theor questionaire choices incase they have been modifed
             if Patient.objects.filter(fullname=fullname,gender=gender,phonenumber=phonenumber,dateofbirth=dateofbirth).exists():
-                   patient = Patient.objects.get(fullname=fullname,gender=gender,phonenumber=phonenumber,dateofbirth=dateofbirth)
-                   patient.smokingstatus = smokingstatus
-                   patient.drinkingstatus = drinkingstatus
-                   patient.previnfection = previnfection
-                   patient.menstrualhistory = menstrualhistory
-                   patient.comments = comments
-                   patient.bloodexposure=bloodexposure
-                   patient.save()
+                  print("displaytests -> patient exists")
+                  patient = Patient.objects.get(fullname=fullname,gender=gender,phonenumber=phonenumber,dateofbirth=dateofbirth)
+                  if QuestionnaireResponses.objects.filter(patient=patient).exists():
+                        print("displaytests -> response exists")
+                        response = QuestionnaireResponses.objects.get(patient=patient)
+                        response.smokingstatus=smokingstatus
+                        response.drinkingstatus=drinkingstatus
+                        response.previnfection=previnfection
+                        response.menstrualhistory=menstrualhistory
+                        response.bloodexposure=bloodexposure
+                        response.comments=comments
+                        response.save()
+                  else:
+                        print("displaytests -> response does not exist")
             else:
-                   print("Patient object was None")
+                   print("displaytests -> patient does not exist")
             print("Reached here")
             # Here we are filtering the diagnostic tests queryset by each tag. At the end of this code we will only have the tests that have all the tags we want to filter by.
             # Creating Query set for the General Healt Check up that is based on gender and age.

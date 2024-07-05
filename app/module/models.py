@@ -8,17 +8,27 @@ class Patient(models.Model):
     emailaddress = models.CharField(max_length=150,blank=True)
     dateofbirth = models.DateField(max_length=8)
     gender = models.CharField(max_length=6)
-    smokingstatus = models.CharField(max_length=150,blank=True)
-    drinkingstatus = models.CharField(max_length=150,blank=True)
-    previnfection = models.CharField(max_length=150,blank=True)
-    menstrualhistory = models.CharField(max_length=150,blank=True,null=True)
-    bloodexposure = models.CharField(max_length=150,blank=True)
-    comments = models.TextField(blank=True)
     age_range = models.CharField(max_length=150,blank=True)
 
     # When we do this, in the admin page when the Patients are displayed, it will show their name
     def __str__(self):
         return self.fullname
+
+class QuestionnaireResponses(models.Model):
+    smokingstatus = models.CharField(max_length=150,blank=True,null=True)
+    drinkingstatus = models.CharField(max_length=150,blank=True,null=True)
+    previnfection = models.CharField(max_length=150,blank=True,null=True)
+    bloodexposure = models.CharField(max_length=150,blank=True,null=True)
+    menstrualhistory = models.CharField(max_length=150,blank=True,null=True)
+    comments = models.TextField(blank=True,null=True)
+    patient = models.OneToOneField(
+        Patient,
+        on_delete=models.CASCADE,
+        primary_key=True,
+        )
+
+
+
 
 
 class Tag(models.Model):

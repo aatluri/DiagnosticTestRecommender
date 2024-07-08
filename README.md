@@ -15,7 +15,7 @@
 6. The website is not very complex and can be easily extended to suit your needs.
 
 ## Real World Application of this project
-This website first takes in a persons basic information, some information about their habits, their personal & family health history. it then uses this information to recommend a personlaised suite of diagnostic tests that the patient should get done. For someone who has already given this information, it will pull their previous responses, allow them to make any changes and then recommends the tests based on this information.
+This website first takes in a persons basic information, some information about their habits & prev health history. It then uses this information to recommend a personlaised suite of diagnostic tests that the patient should get done. For someone who has already given this information, it will pull their previous responses, allow them to make any changes and then recommends the tests based on this information.
 
 ## Technologies used in this project
 1. Python :  The programming language we will be using.
@@ -30,7 +30,7 @@ This website first takes in a persons basic information, some information about 
 ## Django Project Structure
 1. app/ : This is the main folder that consists of the Django project and apps
 2. app/app/ : This is the Django project
-3. app/module/ : This is one of the Django apps that consists of most of the business logic of our web application
+3. app/module/ : This is one of the Django apps that consists of most of the business logic of our web application.
 
 ## Contents of this code base
 This code base as mentioned above is a Django REST API application.
@@ -85,10 +85,9 @@ Once the above is done, you will be able to build & deploy your project.
 
 **GitHub Actions Configuration**
 1. The .github/workflows/checks.yml contains the configuration for GitHub Actions.
-2. But essentially we set set up a trigger and then steps for linting and testing.
+2. Essentially we set set up a trigger and then steps for linting and testing.
 3. We also set up DockerHub authentication using the secrets we created in the settings of our github repo earlier.
-4. While its not necessary to set up DockerHub authentication, it gives us the advantage of getting around the rate limits set by docker to pull the base images each time we build our image.
-2. The file has detailed comments for each step which you can go through tio get a better understanding of what happens in the file.
+4. The file has detailed comments for each step which you can go through tio get a better understanding of what happens in the file.
 
 
 ## Django Admin

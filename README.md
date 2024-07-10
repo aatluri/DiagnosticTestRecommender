@@ -1,4 +1,6 @@
-# Diagnostic Test Recommender Web Application
+# Diagnostic Services Application
+
+## Goal
 
 ## Motivation behind this project
 1. While working on real world projects or ideas, we spend a lot of time on tasks like project setup, cicd pipeline set up, deployment, documentation than on the actual implementation of our idea.
@@ -57,26 +59,13 @@ Once the above is done, you will be able to build & deploy your project.
 
 ### System Setup
 1. Install a code editor. I used VSCode
-2. Install Docker Desktop for Windows or Mac
-    - Once you are done installing, run the below commands to verify the install.
-    - Run docker --version
-    - Run docker-compose --version
-3. Install Git
+2. Install Git
     - Most machines already come with git installed but since we are using Github actions for the CICD pipeline, you will need to ensure that git is installed.
-
-### Project Setup
-**Git**
-1. Go to your github account and create a repository. Copy the https or ssh url for your project.
-2. Then on your local machine, go to the location where you want to clone the repository
-3. Run git clone "url for the project".
-
-
-**Python Requirements**
-1. All the python requirements are listed in the requirements.txt.
-2. We also have a requirements.dev.txt in which we list the dependencies that are needed only during development.
-3. Later you will see that in the Dockerfile, when we are running the project for the dev environment, we also install the dependencies mentioned in the requirements.dev.txt.
-4. Since we already cloned the code base, we already have the requirements.txt and requirements.dev.txt file.
-5. **_Depending on when you are using this, the versions for some of these dependencies might need to be updated to the latest versions._**
+3. Clone the https://github.com/aatluri/DiagnosticTestRecommender repository
+4. Create a python virtual environment : python3 -m venv diagtestrecommenderenv
+5. Run the following command: source diagtestrecommenderenv/bin/activate
+6. Install dependencies: pip install -r requirements.txt
+7. Navigate to the app folder that contains the manage.py file via the above terminal and run the following command: python3 manage.py runserver
 
 
 **Linting & Tests**
@@ -92,15 +81,20 @@ Once the above is done, you will be able to build & deploy your project.
 
 ## Django Admin
 1. Once you run the project, you will need to create a superuser to login to the Django Admin Module.
-2. Run ```docker-compose -f docker-compose-deploy.yml run --rm app sh -c "python manage.py createsuperuser"``` to create a superuser.
-3. Navigate to ```http://127.0.0.1:8000/admin/login/?next=/admin/``` to access the admin page.
+2. Run python manage.py createsuperuser to create a superuser.
+3. Navigate to ```http://127.0.0.1:8000/admin/``` to access the admin page.
 4. Login with the superuser login and password.
 5. The Django Admin Module will load. You will be able to manage users, authentication & the entities you created in the project i.e diagnostictests & tags in this case.
 
+
 ## Interacting with the Website
+1. Navigate to ```http://127.0.0.1:8000/module/patientinformation``` to access the page.
 
-
-
+## Load Data into the Database
+1. Open the terminal and navigate to the app folder that contains the manage,py
+2. Activate the python virtual environment like in the System Setup.
+3. Run the following command:python3 manage.py runscript loaddata
+4. Go to the admin page and you will now see the diagnostic tests data.
 
 ## Build & Deploy this project to the AWS Cloud
 ### Cloud Deployment Process Summary
